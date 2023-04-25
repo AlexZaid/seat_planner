@@ -19,6 +19,7 @@ class Ly_spotController extends Controller
     public function unassigned_employees(){
         $ly_spot=new Ly_spot();
         $ly_employee=$ly_spot->getUnassignedEmployees();   
+       
         return view('layout.employee',['ly_employee'=>$ly_employee]);
     }
 }

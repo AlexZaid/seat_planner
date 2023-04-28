@@ -23,14 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // try {
-        //     \DB::connection()->getPDO();
-        //     dump('Database connected: ' . \DB::connection()->getDatabaseName());
-        // }
+       /*  try {
+            \DB::connection()->getPDO();
+            dump('Database connected: ' . \DB::connection()->getDatabaseName());
+        }
          
-        // catch (\Exception $e) {
-        //     dump('Database connected: ' . 'None');
-        // }
-        //
+        catch (\Exception $e) {
+            dump('Database connected: ' . 'None');
+        } */
+        
     }
 }

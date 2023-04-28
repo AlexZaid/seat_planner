@@ -52,11 +52,19 @@
 					      </div>	
                 </div>            
                 <div class="col-sm-2 col-md-2 form-panel" >
-                    <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <div class="h-100 p-2 text-bg-dark rounded-3">
                         <input type="text" class="mb-2 form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        <table class="table table-dark table-striped-columns filteremployees">
-                            
-                        </table>
+                        <div class=""	style="width:20px;height:700px; overflow-y: scroll;">
+                          <table class="table table-dark table-striped-columns">
+                            <thead>
+                                <tr style="background-color: whitesmoke; text-align:center;">
+                            		<th><b>Employees with not seat</b></th>
+                                </tr>
+                            </thead>
+                            <tbody class="filteremployees"   >
+                            </tbody>
+                          </table>
+                        </div>
                     </div>
                 </div>      
         </div>       

@@ -224,7 +224,7 @@ text-align: center;
  
 .seatName {
   position: absolute;
-  top: -15px;
+  top: -18px;
   left: -9px;
   color: white;
   font-family: Fira Sans Regular;
@@ -270,14 +270,14 @@ text-align: center;
         border: 2px solid #1A5D7F;
     }
 
-    .uncheckAllButton{
-        color: white; font-family: Fira Sans;
-        background: #D64141;
-        width:100px;
-        height:40px; 
-        cursor:pointer;
-        border: 2px solid #D64141;
-    }
+.uncheckAllButton{
+    color: white; font-family: Fira Sans;
+    background: #D64141;
+    width:100px;
+    height:40px; 
+    cursor:pointer;
+    border: 2px solid #D64141;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -359,4 +359,12 @@ input:checked + .slider:before {
   color: #ffffff;
   background-color: var(--bs-btn-active-bg);
   border-color: var(--bs-btn-active-border-color);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+html {
+  overflow: auto;
 }

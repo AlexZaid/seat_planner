@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Ly_seatsController;
+use App\Http\Controllers\Ly_seatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix'=>'seat'],function(){
-    Route::post('save', [Ly_seatsController::class,'store']);
-    //Route::get('seat', [Ly_seatsController::class,'show']);
+    Route::post('save', [Ly_seatController::class,'store']);
+    //Route::get('seat', [Ly_seatController::class,'show']);
 });

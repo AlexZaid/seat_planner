@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Ly_shiftsController extends Controller
+class Ly_assignationController extends Controller
 {
     //
 }

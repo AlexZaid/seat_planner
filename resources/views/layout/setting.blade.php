@@ -41,9 +41,9 @@
           </a>
         </header>
         <div class="row">  
-                 <div id="floors"  class="col-md-2 col-sm-8 col-xs-8 bg-warning  form-panel"  onselectstart="return false"  style="margin:0 auto; margin-top:15px; background:url({{asset('img/Slide1.png')}}) no-repeat; height: 650px; min-width: 1200px;">                                           
+                 <div id="floors"  class="col-md-2 col-sm-8 col-xs-8 bg-warning  form-panel"  onselectstart="return false"  style="margin:0 auto; margin-top:15px; background:url({{asset('img/Slide1.png')}}) no-repeat; height: 650px; min-width: 1050px;">                                           
 						      <div id="floorMZ" style="position:absolute; height: 100%; width: 100%;">
-                      <ul id=""  class="panzoom-exclude seat employeesassigned " style="height:30px; width:30px; border:3px dashed #1A436C; padding: 0px; top:14.615384615384615%; left:3.5%;">
+                      <ul id=""  class="panzoom-exclude seat employeesassigned " style="height:30px; width:30px; border:3px dashed #1A436C; padding: 0px; top:7.301415384615384%; left:22.36647619047619%;">
 	                           <div class="seatName"><p style="margin-top: 1px;"></p></div>
 	                        		<li class="vat "  value=""  style="margin-left: 2px;margin-top: 2px;">
 	                            	    <div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
@@ -79,9 +79,9 @@
 						      <div id="floor9"></div>
 						      <div id="floor10"></div>
 					      </div>	    
-                 <div style="z-index:1" id="dropZone" class="col-md-2 col-sm-8 col-xs-8 bg-warning  form-panel" >
+                 <div style="z-index:4" id="dropZone" class="col-md-2 col-sm-8 col-xs-8 bg-warning  form-panel" >
                     <div class="h-100 p-2 text-bg-dark rounded-3">
-                         <div class=""	style="height:700px;">
+                         <div class=""	style="height:650px;">
                          <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Seat Name</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1">

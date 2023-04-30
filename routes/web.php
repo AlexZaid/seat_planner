@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ly_spotController;
-use App\Http\Controllers\Ly_seatsController;
-use App\Http\Controllers\Ly_assignationsController;
-use App\Http\Controllers\Ly_shiftsController;
+use App\Http\Controllers\Ly_seatController;
+use App\Http\Controllers\Ly_assignationController;
+use App\Http\Controllers\Ly_shiftController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,6 @@ Route::get('/facilities', [Ly_spotController::class,'']);
 
 /* Seat */
 Route::group(['prefix'=>'layout'],function(){
-    Route::get('/settings', [Ly_seatsController::class,'index'])->name('setting');
-    Route::get('/seats/{floor}', [Ly_seatsController::class,'index']);
+    Route::get('/settings', [Ly_seatController::class,'index'])->name('setting');
+    Route::get('/seats/{floor}', [Ly_seatController::class,'index']);
 });

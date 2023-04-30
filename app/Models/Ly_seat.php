@@ -16,7 +16,6 @@ class Ly_seat extends Model
         $this->description=$request->description;
         $this->posLeft=$request->posLeft;
         $this->posTop=$request->posTop;
-
         if($this->save()){
             $response=array('status'=>200,'saved'=>'save');
         }else{

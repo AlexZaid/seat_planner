@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ly_seat;
 
-class Ly_seatsController extends Controller
+class Ly_seatController extends Controller
 {
     public function index(){
         return view('layout.setting');

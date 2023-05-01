@@ -113,5 +113,5 @@
     </footer>
     </div>
 </main>
-<script src="{{ asset('js/setting.js') }}"></script>
+<script src="/js/setting.js"></script>
 @endsection

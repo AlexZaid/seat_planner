@@ -21,17 +21,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-/* Layout Office */
-Route::get('/layout', [Ly_spotController::class,'index']);
-Route::get('/spots/{floor}', [Ly_spotController::class,'spots']);
-Route::get('/unassignedEmployees', [Ly_spotController::class,'unassigned_employees']);
-
-/* Summary */
-Route::get('/site', [Ly_spotController::class,'']);
-Route::get('/facilities', [Ly_spotController::class,'']);
-
-/* Seat */
+/* Layout */
 Route::group(['prefix'=>'layout'],function(){
-    Route::get('/settings', [Ly_seatController::class,'index'])->name('setting');
-    Route::get('/seats/{floor}', [Ly_seatController::class,'index']);
+    Route::group(['prefix'=>'office'],function(){
+        Route::get('/', [Ly_assignationController::class,'index']);
+        Route::get('/seat/{floor}', [Ly_assignationController::class,'show']);
+        Route::get('/unassignedEmployees', [Ly_assignationController::class,'unassigned_employees']);
+    });
+    Route::group(['prefix'=>'management'],function(){
+
+       
+    });
 });

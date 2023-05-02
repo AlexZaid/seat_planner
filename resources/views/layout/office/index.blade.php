@@ -43,7 +43,7 @@
                           <label class="btn btn-outline-primary" for="3">3</label>
                         </div>
                 </div>
-                <div id="floors" onselectstart="return false"  style=" display:none; margin-top:20px;position:absolute;background: url('img/Slide1.png') no-repeat; height: 650px; width: 1000px;">                                           
+                <div id="floors" onselectstart="return false"  style=" display:none; margin-top:20px;position:absolute;background: url('/img/Slide1.png') no-repeat; height: 650px; width: 1000px;">                                           
 						      <div id="floorMZ"></div>
 						      <div id="floor7"></div>
 						      <div id="floor8"></div>
@@ -74,5 +74,5 @@
     </footer>
     </div>
 </main>
-<script src="{{ asset('js/layout.js') }}"></script>
+<script src="/js/layout.js"></script>
 @endsection

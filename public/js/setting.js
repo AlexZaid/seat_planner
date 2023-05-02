@@ -44,7 +44,18 @@ function DragDropHandler(){
 }
 
 let elem = document.getElementById('floors')
-let panzoom = Panzoom(elem,{ animate: true })
+let zoomInButton = document.getElementById('zoomInButton')
+let zoomOutButton = document.getElementById('zoomOutButton')
+let resetButton = document.getElementById('resetButton')
+let rangeInput = document.getElementById('rangeInput')
+
+let panzoom = Panzoom(elem,{ contain: null,animate: true })
+zoomInButton.addEventListener('click', panzoom.zoomIn)
+zoomOutButton.addEventListener('click', panzoom.zoomOut)
+resetButton.addEventListener('click', panzoom.reset)
+rangeInput.addEventListener('input', (event) => {
+  panzoom.zoom(event.target.valueAsNumber)
+})
 elem.parentElement.addEventListener('wheel', panzoom.zoomWithWheel)
 
 function saveSeat(){

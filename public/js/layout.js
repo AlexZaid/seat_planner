@@ -1,17 +1,17 @@
 $( document ).ready(function() {
 
-	$.ajax({
+	/* $.ajax({
 		url:'/unassignedEmployees',
 		success:function(data){	
 			$('.filteremployees').append(data);						
 		}
 	})
-
+ */
 	const floors = ["MZ","7","8","9","10"];
 	let promises = [];
 	floors.map(function(floor) {
 		let request=$.ajax({
-			url:'/spots/'+floor,
+			url:'/layout/office/seat/'+floor,
 			success:function(data){	
 				$('#floor'+floor).html(data);						
 			}
@@ -47,16 +47,18 @@ $("input[name=weekdays],input[name=shift]").click(function(){
 function shiftAndDayValue(){
 	var day = $("input[name=weekdays]:checked").val()			
 	  var shift = $("input[name=shift]:checked").val()		
-		$('.spotdiv').hide();
+		$('.seatdiv').hide();
+		$('.opendiv').hide();
 		$('.'+shift+'shared.'+day).show();
-		$('.checkboxesDays input:checked').each(function(i, obj) {
+		$('.'+shift+'shared.'+day).show();
+		/*$('.checkboxesDays input:checked').each(function(i, obj) {
 			if(day==$(this).val()){
 				$(this).prop('disabled', true);
 			}else{
 				$(this).prop('disabled', false);
 			}
 			
-		})
+		}) */
 		
 }
 

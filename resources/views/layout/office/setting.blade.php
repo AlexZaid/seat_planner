@@ -37,12 +37,23 @@
                           <input type="radio" class="btn-check" name="shift" id="3" value="3">
                           <label class="btn btn-outline-primary" for="3">3</label>
                         </div>
+                        <div class="btn-group" role="group" aria-label="Third group">                          
+                           
+                            <button id="zoomInButton">Zoom in</button>
+                            <button id="zoomOutButton">Zoom out</button>
+                            <button id="resetButton">Reset</button>
+                            <input id="rangeInput" class="range-input" type="hidden" min="0.1" max="4" step="0.1" value="1">
+                            <div>
+                              <input type="checkbox" id="disable-pan" checked=""><label for="disable-pan">Enable panning</label>
+                            </div>
+                        </div>
                 </div>
           </a>
         </header>
         <div class="row">  
                  <div id="floors"  class="col-md-2 col-sm-8 col-xs-8 bg-warning  form-panel"  onselectstart="return false"  style="margin:0 auto; margin-top:15px; background:url({{asset('img/Slide1.png')}}) no-repeat; height: 650px; min-width: 1050px;">                                           
 						      <div id="floorMZ" style="position:absolute; height: 100%; width: 100%;">
+                  @foreach ($seats as $seat)
                       <ul id=""  class="panzoom-exclude seat employeesassigned " style="height:30px; width:30px; border:3px dashed #1A436C; padding: 0px; top:7.301415384615384%; left:22.36647619047619%;">
 	                           <div class="seatName"><p style="margin-top: 1px;"></p></div>
 	                        		<li class="vat "  value=""  style="margin-left: 2px;margin-top: 2px;">
@@ -73,6 +84,7 @@
 	                            	    </div>
 	                            	</li>     
 	                        </ul>
+                           @endforeach
                   </div>
 						      <div id="floor7"></div>
 						      <div id="floor8"></div>
@@ -108,9 +120,7 @@
                 </div>    
         </div>       
     </div>
-    <footer class="pt-3 mt-4 text-muted border-top">
-          HERE&copy; 2023
-    </footer>
+   
     </div>
 </main>
 <script src="/js/setting.js"></script>

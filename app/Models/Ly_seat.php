@@ -23,4 +23,5 @@ class Ly_seat extends Model
         }
         return  $response;
     }
+    
 }

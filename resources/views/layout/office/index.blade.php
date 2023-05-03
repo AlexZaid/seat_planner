@@ -69,9 +69,6 @@
                 </div>      
         </div>       
     </div>
-    <footer class="pt-3 mt-4 text-muted border-top">
-          HERE&copy; 2023
-    </footer>
     </div>
 </main>
 <script src="/js/layout.js"></script>

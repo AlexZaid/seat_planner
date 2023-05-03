@@ -18,7 +18,7 @@
                           <input type="radio" class="btn-check" name="weekdays" id="btnradio3" value="We">
                           <label class="btn btn-outline-primary" for="btnradio3">We</label>
                           <input type="radio" class="btn-check" name="weekdays" id="btnradio4" value="Th">
-                          <label class="btn btn-outline-primary" for="btnradio4">Th</label>
+                          <label class="btn btn-outline-primary" for="btnradio4">Thurssday</label>
                           <input type="radio" class="btn-check" name="weekdays" id="btnradio5" value="Fr">
                           <label class="btn btn-outline-primary" for="btnradio5">Fr</label>
                         </div>

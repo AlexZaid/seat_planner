@@ -29,7 +29,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <li><a class="dropdown-item" href="#">Office</a></li>
-            <li><a class="dropdown-item" href="#">Management</a></li>
+            <li><a class="dropdown-item" href="#">Managment</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
           </ul>
         </li>

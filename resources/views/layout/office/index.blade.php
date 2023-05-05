@@ -20,7 +20,7 @@
                           <input type="radio" class="btn-check" name="weekdays" id="btnradio4" value="Th">
                           <label class="btn btn-outline-primary" for="btnradio4">Th</label>
                           <input type="radio" class="btn-check" name="weekdays" id="btnradio5" value="Fr">
-                          <label class="btn btn-outline-primary" for="btnradio5">Fr</label>
+                          <label class="btn btn-outline-primary" for="btnradio5">Friday</label>
                         </div>
                         <div class="btn-group me-2 floorsOption" role="group" aria-label="Second group">
                           <input type="radio" class="btn-check" name="floor" id="MZ" value="MZ" >

@@ -12,6 +12,7 @@ $( document ).ready(function() {
 	floors.map(function(floor) {
 		let request=$.ajax({
 			url:'/layout/office/seat/'+floor,
+			async : true,
 			success:function(data){	
 				$('#floor'+floor).html(data);						
 			}

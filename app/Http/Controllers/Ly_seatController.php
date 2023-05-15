@@ -9,7 +9,7 @@ class Ly_seatController extends Controller
 {
     public function index(){
         $seats = Ly_seat::all();
-        return view('layout.setting',['seats'=>$seats]);
+        return view('layout.management.seats.index',['seats'=>$seats]);
     }
     
     public function show(){

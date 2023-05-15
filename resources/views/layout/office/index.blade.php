@@ -42,6 +42,9 @@
                           <input type="radio" class="btn-check" name="shift" id="3" value="3">
                           <label class="btn btn-outline-primary" for="3">3</label>
                         </div>
+                        <div class="btn-group" style="margin-left: 371px;" >
+                          <button type="button" onclick="saveLayout()" class="btn btn-outline-success">Success</button>
+                        </div>
                 </div>
                 <div id="floors" onselectstart="return false"  style=" display:none; margin-top:20px;position:absolute;background: url('/img/Slide1.png') no-repeat; height: 650px; width: 1000px;">                                           
 						      <div id="floorMZ"></div>
@@ -53,15 +56,18 @@
                 </div>            
                 <div class="col-sm-2 col-md-2 form-panel" >
                     <div class="h-100 p-2 text-bg-dark rounded-3">
-                        <input type="text" class="mb-2 form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        <div class=""	style="width:20px;height:700px; overflow-y: scroll;">
+                        <input type="text" id="filterEmp" onclick="alert()" class="mb-2 form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                     <div class=""	style="width:100%;height:700px; overflow-y: scroll;">
                           <table class="table table-dark table-striped-columns">
                             <thead>
-                                <tr style="background-color: whitesmoke; text-align:center;">
+                              <tr>
                             		<th><b>Employees with not seat</b></th>
-                                </tr>
+                              </tr>
                             </thead>
-                            <tbody class="filteremployees"   >
+                            <tbody>
+                              <tr>
+                                <td><div class="filteremployees" style="margin-left: -14%;" ></div></td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
@@ -70,6 +76,7 @@
         </div>       
     </div>
     </div>
+     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 </main>
 <script src="/js/layout.js"></script>
 @endsection

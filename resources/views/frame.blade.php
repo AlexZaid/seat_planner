@@ -10,6 +10,9 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     <link rel="stylesheet" href="/css/layout.css">
+     <link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/fontawesome/css/solid.css" rel="stylesheet">
 </head>
   <body>
 
@@ -28,9 +31,13 @@
             Layout
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Office</a></li>
-            <li><a class="dropdown-item" href="#">Managment</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="/layout/office">Office</a></li>
+            <li class="nav-item dropdown"><a class="dropdown-item" href="#">Management </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/layout/management/assignation">Assign employees to seats</a></li>
+                    <li><a class="dropdown-item" href="/layout/management/editSeats">Create seats</a></li>
+                </ul>    
+            </li>
           </ul>
         </li>
       </ul>
@@ -40,9 +47,7 @@
             Summary
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Site Summary</a></li>
-            <li><a class="dropdown-item" href="#">Facilities Summary</a></li>
-            <li><a class="dropdown-item" href="#">Outsourced Services Summary</a></li>
+            <li><a class="dropdown-item" href="/summary/facilities">Facilities Summary</a></li>
           </ul>
         </li>
       </ul>
@@ -59,6 +64,12 @@
 </footer>
 </html>
 <style>
+  .dropdown:hover > .dropdown-menu{
+    display:block;
+
+  }
+
+
     body{
         margin:0;
         padding:0;

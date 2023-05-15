@@ -2,12 +2,13 @@
 	@php
 		$days = str_replace(',', ' ', $seat->weekdays);
 		$classShared = $seat->shift. "shared ";
+		$seatId=$seat->seatName.'-'.$seat->shift;
 	@endphp
 	<div class=" " id="divseat{{$seat->seatName}}" style="position: absolute; top: {{$seat->posTop}}px;  left:  {{$seat->posLeft}}px;">
-		<ul id="{{$seat->seatName}}" class="seat{{$seat->seatName}} seatdiv employeesassigned {{$classShared.' '.$days}} " style="padding: 0px;">
+		<ul id="{{$seatId}}" class="seat{{$seat->seatName}} seatdiv employeesassigned {{$classShared.' '.$days}} " style="padding: 0px;">
 		   <div class="seatName"><p style="margin-top: 1px;">{{$seat->seatName}}</p></div>
 		    @if ($seat->id_emp!=0)
-				<li class="vat {{$seat->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" value="{{$seat->id_emp}}"  style="margin-left: 1px;">
+				<li class="vat {{$seat->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" value="{{$seat->id_emp}}" data-seat="{{$seatId}}" style="margin-left: 1px;">
 		    	    <div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
 		    	        <button type="button" style="display:none; left: -4px;top: 52px;position: absolute;" onclick="buttoninfo('{{$seat->id_emp}}')" class="editEmp buttoninfo{{$seat->id_emp}}" >Edit</button>
 		    	    </div> 
@@ -23,7 +24,7 @@
 							<input type="checkbox" class="FrCheck" id="checkbox{{$seat->id_emp}}Fr" value="Fr" {{ false !== strpos($seat->weekdays, 'Fr') ? 'checked': '' }}> <label for="cbox2">Friday</label>
 						</div>	
 						<br/>
-						<b>Shared:</b><br/>
+						<b>Admin:</b><br/>
 						<label onclick="" class="switch switchLabel{{$seat->id_emp}}">
 		  					<input onchange="switchBoxes(this,'{{$seat->id_emp}}')" type="checkbox" class="sharedSwitchInput{{$seat->id_emp}}">
 		  					<span class="slider round"></span>

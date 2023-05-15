@@ -1,8 +1,7 @@
-@foreach ($ly_employee as $employee )
-	<tr>
-        <td class="table-primary">
-			<ul id="" class="employees" style="">             
-				<li class="vat {{$employee->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" value="{{$employee->id_emp}}"  style="margin-left: 1px;">
+<ul id="" class="employees" style="display: flex; align-content: center; flex-direction: column; align-items: center;">  
+
+@foreach ($ly_employee as $employee )      
+				<li class="vat {{$employee->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" value="{{$employee->id_emp}}"  data-seat="employees">
 				    <div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
 				        <button type="button" style="display:none; left: -4px;top: 52px;position: absolute;" onclick="buttoninfo('{{$employee->id_emp}}')" class="editEmp buttoninfo{{$employee->id_emp}}" >Edit</button>
 				    </div> 
@@ -28,9 +27,7 @@
 				    </div>
 				    <div class="picletters Name" >{{$employee->first_name}}
 				    </div>
-				</li>
-			</ul>
-		</td>
-	</tr>
+				</li>	
 @endforeach
+</ul>
 

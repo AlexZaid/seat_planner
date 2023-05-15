@@ -101,6 +101,7 @@
 	                            	    <div class="container info information" style="display:none;width: 150px;background-color: #f4f4fd;left: -4px;top: 52px;position: absolute;z-index: 100;">
 	                        			<button type="button" class="close" aria-label="Close" onclick="closeWeekdayTip('info')" ><span style="color:red;" aria-hidden="true">&times;</span></button>
 	                        				<br/>
+	                        				<br/>
 	                        				<b>Weekdays:</b><br/>
 	                        				<div onclick="checkedboxes(this,'')" class="checkbox checkboxesDays">
 	                        					<input type="checkbox" class="MoCheck" id="checkboxMo" value="Mo" > <label for="cbox2">Monday</label><br/>

@@ -20,7 +20,7 @@ pipeline {
             // }
             steps {
                 sh 'echo Deploying'
-                    sh 'ssh tegl@10.105.174.6 -o StrictHostKeyChecking=no "bash /home/tegl/cicdJobs/cicdLayout.sh deploy"'
+                sh 'ssh tegl@10.105.174.6 -o StrictHostKeyChecking=no "bash /home/tegl/cicdJobs/cicdLayout.sh deploy"'
             }
         }
     }

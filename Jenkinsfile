@@ -14,7 +14,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            // input{
+            /// input{
             //     message 'Deploy to production'
             //     ok 'yes of course'
             // }

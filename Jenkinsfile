@@ -10,7 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo Testing'
-                sh 'ssh tegl@10.105.174.6 -o StrictHostKeyChecking=no "bash /home/tegl/cicdJobs/cicdLayout.sh 0"'
+                sh 'ssh tegl@10.105.174.6 -o StrictHostKeyChecking=no "bash /home/tegl/cicdJobs/cicdLayout.sh testing"'
             }
         }
         stage('Deploy') {
@@ -20,7 +20,7 @@ pipeline {
             // }
             steps {
                 sh 'echo Deploying'
-                sh 'ssh tegl@10.105.174.6 -o StrictHostKeyChecking=no "bash /home/tegl/cicdJobs/cicdLayout.sh 1"'
+                sh 'ssh tegl@10.105.174.6 -o StrictHostKeyChecking=no "bash /home/tegl/cicdJobs/cicdLayout.sh deployment"'
             }
         }
     }

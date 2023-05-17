@@ -18,7 +18,7 @@
 			class="btn btn-primary btnSeatName" 
 			style="cursor:pointer;"
 			 data-bs-toggle="modal" data-bs-target="#seatModal{{$seatId}}">
-			 {{$seatId}}</button>
+			 {{$seat->seatName}}</button>
 		   			<div class="modal fade" id="seatModal{{$seatId}}" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
 					  <div class="modal-dialog" >
 					    <div class="modal-content">

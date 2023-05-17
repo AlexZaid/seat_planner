@@ -1,7 +1,5 @@
 $( document ).ready(function() {
 	loadFloors()
-	
-	DragDropHandler()
 });
 
 function loadFloors(){
@@ -20,12 +18,7 @@ const floors = ["MZ","7","8","9","10"];
 
 $.when.apply(null, promises).then( function(){
 	$('#floors').fadeIn('slow');	
-		// callmeman(false);
-		DragDropHandler()
-		// dropenables()
-	/* $('#Mo').click();
-	$('#MZ').click();
-	$('#1').click(); */
+	DragDropHandler()
 	$('#MZ').click();
 });
 }
@@ -193,15 +186,32 @@ function saveSeats(){
 	
 	data=JSON.stringify(datos)
 	console.log(data);
-	$.ajax({
-		url:'/api/seat/save', 
-		type: 'post',
-		dataType: 'json',
-		async: false,
-		contentType: "application/json; charset=utf-8",
-		data:JSON.stringify(datos),
-		success:function(resp){	
-			console.log(resp)		
+	Swal.fire({
+		title: 'Do you want to save the changes?',
+		showDenyButton: true,
+		confirmButtonText: 'Save',
+		denyButtonText: `Don't save`,
+	  }).then((result) => {
+		/* Read more about isConfirmed, isDenied below */
+		if (result.isConfirmed) {
+			$.ajax({
+				url:'/api/seat/save', 
+				type: 'post',
+				dataType: 'json',
+				async: false,
+				contentType: "application/json; charset=utf-8",
+				data:JSON.stringify(datos),
+				success:function(resp){	
+					console.log(resp)	
+					Swal.fire('Saved!', '', 'success')
+				}
+			})  
+		  
+		} 
+		
+		else if (result.isDenied) {
+		  Swal.fire('Changes are not saved', '', 'info')
 		}
-	})  
+	  })
+	
 }

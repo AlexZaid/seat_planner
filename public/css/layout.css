@@ -314,6 +314,7 @@ a {
   --bs-btn-padding-x: 0;
   --bs-btn-padding-y: 0;
 }
+
 .sendButton{
         color: white; font-family: Fira Sans;
         background: #1A5D7F;

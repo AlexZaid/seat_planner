@@ -479,20 +479,33 @@ function saveLayout(){
    });
   
    datos = {"_token" :$('#token').val(),"data":data};
-   
-   data=JSON.stringify(datos)
-   console.log(data);
-   $.ajax({
-	   url:'/api/layout/save', 
-	   type: 'post',
-	   dataType: 'json',
-	   async: false,
-	   contentType: "application/json; charset=utf-8",
-	   data:JSON.stringify(datos),
-	   success:function(resp){	
-		   console.log(resp)		
-	   }
-   })
+   Swal.fire({
+	title: 'Do you want to save the changes?',
+	showDenyButton: true,
+	confirmButtonText: 'Save',
+	denyButtonText: `Don't save`,
+  }).then((result) => {
+	if (result.isConfirmed) {
+		data=JSON.stringify(datos)
+		console.log(data);
+		$.ajax({
+			url:'/api/layout/save', 
+			type: 'post',
+			dataType: 'json',
+			async: false,
+			contentType: "application/json; charset=utf-8",
+			data:JSON.stringify(datos),
+			success:function(resp){	
+				console.log(resp)
+				Swal.fire('Saved!', '', 'success')		
+			}
+		})
+	 
+	} else if (result.isDenied) {
+	  Swal.fire('Changes are not saved', '', 'info')
+	}
+  })
+  
 }	
 
 $('#filterEmp').keyup(function () {

@@ -41,6 +41,7 @@ Route::group(['prefix'=>'layout'],function(){
 
         Route::group(['prefix'=>'editSeats'],function(){
             Route::get('/', [Ly_seatController::class,'index']);
+            Route::get('/seat/{floor}', [Ly_seatController::class,'show']);
         });
     });
 });

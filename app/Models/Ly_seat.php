@@ -9,19 +9,29 @@ class Ly_seat extends Model
 {
     use HasFactory;
 
+    public function showModel($floor){
+        $spots = Ly_seat::whereRaw('seatName like :floor', ['floor' => $floor.'%'])
+                                ->get(); 
+        return $spots;
+    }
+
     public function storeModel($request)
     {
-        $this->seatName=$request->seatName;
-        $this->floor=$request->floor;
-        $this->description=$request->description;
-        $this->posLeft=$request->posLeft;
-        $this->posTop=$request->posTop;
-        if($this->save()){
-            $response=array('status'=>200,'saved'=>'save');
-        }else{
-            $response=array('status'=>500,'error'=>'true');
-        }
-        return  $response;
+        foreach($request->data as $row) {
+            $parameters=array('posTop' => $row['posTop'],
+            'posLeft' => $row['posLeft']
+            );
+
+                Ly_seat::where('seatName',$row['seatName'])   
+                                ->update($parameters);     
+                }   
+    
+      
+            // $response=array('status'=>200,'saved'=>'save');
+        
+            // $response=array('status'=>500,'error'=>'true');
+        
+        // return  $response;
     }
     
 }

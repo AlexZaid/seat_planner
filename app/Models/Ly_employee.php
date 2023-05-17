@@ -28,7 +28,7 @@ class Ly_employee extends Model
 
 
     public function getAssignedEmployees(){
-        $employees = Ly_employee::join('ly_assignations', 'ly_assignations.id_emp', '=', 'employee.id_emp')
+        $employees = Ly_employee::rightJoin('ly_assignations', 'ly_assignations.id_emp', '=', 'employee.id_emp')
                                 ->select('ly_assignations.*', 'employee.*')
                                 ->get(); 
         return $employees;

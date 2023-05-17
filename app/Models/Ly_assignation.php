@@ -31,7 +31,7 @@ class Ly_assignation extends Model
                                       ->select('ly_assignations.shared')
                                       ->get(); 
 
-        //   dd($shared[0]['shared']);
+        
                 if ($row['shared']==true&&$shared[0]['shared']==false){
                     $params=array('id_emp' => 0,
                               'weekdays' => 'Mo,Tu,We,Th,Fr',   

@@ -10,7 +10,7 @@
 			$classShared = "";
 		}		
 	@endphp 
-	<div class="divseat" id="divseat{{$seatId}}" style="position: absolute; top: {{$seat->posTop}}px;  left:  {{$seat->posLeft}}px;">
+	<div class="divseat" id="divseat{{$seatId}}" style="position: relative; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%; width: 25px;">
 		<img src="/img/marker.png" class="markerSeat" style="display:none; position: absolute; top: -70px; left:-14px;" width="50" height="50">
 		<ul id="{{$seatId}}" class="seat{{$seat->seatName}} seatdiv employeesassigned {{$classShared.' '.$days}} " style="padding: 0px;">
 		  	
@@ -43,7 +43,7 @@
 					  </div>
 					</div>
 		    @if (($seat->id_emp!=0 && $seat->shared==true) || ($seat->id_emp!=0 && $seat->shared==false &&  $seat->shift==1 ) )
-				<li class="vat {{$seat->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$seat->id_emp}}" data-seat="{{$seatId}}" style="margin-left: 1px;">
+				<li class="vat {{$seat->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$seat->id_emp}}" data-seat="{{$seatId}}" style="margin-left: 2px; margin-top: 2px;">
 		    	    <a style="display:none;" href="#">{{$seat->first_name." ".$seat->last_name." ".$seat->id_emp}}</a>		
 					<div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
 		    	        <button type="button" style="display:none; left: -4px;top: 52px;position: absolute;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$seat->id_emp}}" class="editEmp buttoninfo{{$seat->id_emp}}" >Edit</button>

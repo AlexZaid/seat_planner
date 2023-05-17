@@ -1,6 +1,6 @@
 <ul id="unassigned" class="employees" style="display: flex; align-content: center; flex-direction: column; align-items: center;">  
 @foreach ($ly_employee as $employee )      
-				<li class="vat {{$employee->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$employee->id_emp}}"  data-seat="employees">
+				<li class="vat {{$employee->id_emp}}" style="margin-left: 2px; margin-top: 2px;" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$employee->id_emp}}"  data-seat="employees">
 				    <a style="display:none;" href="#">{{$employee->first_name." ".$employee->last_name." ".$employee->id_emp}}</a>
 					<div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
 		    	        <button type="button" style="display:none; left: -4px;top: 52px;position: absolute;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$employee->id_emp}}" class="editEmp buttoninfo{{$employee->id_emp}}" >Edit</button>

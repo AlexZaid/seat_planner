@@ -49,8 +49,15 @@ function shiftAndDayValue(){
 	   $('.seatdiv').hide();
 	   $('.opendiv').hide();
 	   $('.'+shift+'shared.'+day).show();
-	   $('.admin.'+day).show();
-	//    $('.admin').show();	
+	   $('.admin.'+day).show(); 
+	   $('.checkboxesDaysMultiple input:checked').each(function() {		   
+			$(this).prop('checked', false);
+			$(this).prop('disabled', false);
+		})
+	   $('#checkboxMultiple'+day).prop('checked',true);
+	   $('#checkboxMultiple'+day).prop('disabled',true);
+	//    $('.admin').show();
+
 }
 
 function showButton(element) {   
@@ -175,22 +182,21 @@ function DragDropHandler(){
 				   }		
 			   
 			   $(this).find("li.open").remove();
-			   callmeman(false);
+			  
 				$(ui.draggable).find('.avatar').addClass("picture"); 
 				$(ui.draggable).find('.picletters').addClass("Name");
-			   var dayf = $("input[name=weekdays]:checked").val()			
-				 var shiftf = $("input[name=shift]:checked").val()
-			   $('.checkbox'+$(ui.draggable).attr('value')+' input:checked').each(function() {		
+			    var dayf = $("input[name=weekdays]:checked").val()			
+			 	 var shiftf = $("input[name=shift]:checked").val()
+			    $('.checkbox'+$(ui.draggable).attr('value')+' input:checked').each(function() {		
 				   $(this).prop('checked', false);
 				   $(this).prop('disabled', false);
-			   }) 
+			   })  
 			   $('.checkboxesDaysMultiple input:checked').each(function() {
-				   
-				   $('#checkbox'+$(ui.draggable).val()+$(this).val()).prop('checked', true);
+					$('#checkbox'+$(ui.draggable).val()+$(this).val()).prop('checked', true);
 			   })
 			   $('#checkbox'+$(ui.draggable).attr('value')+dayf).prop('checked', true);	
 			   $('#checkbox'+$(ui.draggable).attr('value')+dayf).prop('disabled', true);
-			   $(ui.draggable).addClass("edited"); 
+			 $(ui.draggable).addClass("edited"); 
 			   oldSeat=$(ui.draggable).attr("data-seat")
 
 		   
@@ -236,12 +242,6 @@ function DragDropHandler(){
 				   }
 			   });
 
-
-
-
-
-
-
 			   $(".employeesInLayout tr").filter(function(event, row) {
 				   if($(row).text().indexOf($(ui.draggable).val()) > -1){
 					   $(row).closest("tr").remove();
@@ -264,7 +264,9 @@ function DragDropHandler(){
 				  <a href="#" OnClick="lookforSeatEmployee('${$(this).attr("id")}','${$(ui.draggable).val()}','${dayf}')">${$(ui.draggable).val()}</a>
 				  </td>
 				 </tr> `);
-				   
+
+				 callmeman(true);
+				    
 				}
 		   }
 	   });
@@ -322,8 +324,15 @@ function DragDropHandler(){
 	   
 	   $(window).on('hidden.bs.modal', function() { 
 		   $( ".employees li, .employeesassigned li" ).draggable( { disabled: false } )
+		   daysArr=[];
+		   $('.checkboxesDaysMultiple input:checked').each(function() {		   
+			daysArr.push($(this).attr('id'))
+			})
 		   $('#'+$("input[name=weekdays]:checked").val()).click();
 		   callmeman(false)
+		   daysArr.forEach((element) => {
+				$('#'+element).prop('checked',true)
+			}); 
 	   });
 }
 
@@ -345,7 +354,7 @@ function callmeman(flag){
 		   }
 		   $(obj).css("height","30px");
 		   $(obj).css("width","30px");
-		   $(obj).css("border", "3px dashed #1A436C");			
+		   $(obj).css("border", "3px dashed #3F59A7");			
 		}	 
    });
    if(flag==false){

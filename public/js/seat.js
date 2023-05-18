@@ -68,14 +68,17 @@ $("input[name=floor]").click(function(){
 
 function DragDropHandler(){
     $( ".seat" ).draggable({
+			
 			start: function(event, ui) {				 
 				// ui.position.left = 0;
 				// ui.position.top = 0;
 			},
 			drag: function(event, ui) 
 			{
-
-				/* div=$("#floors").css('transform')
+				$(this).css({
+					"position": "relative"})
+      
+				div=$("#floors").css('transform')
 				var values = div.split('(')[1];
 				values = values.split(')')[0];
 				values = values.split(',');
@@ -89,9 +92,11 @@ function DragDropHandler(){
 				console.log(changeTop);
 				console.log(newTop);
         		ui.position.left = newLeft;
-        		ui.position.top = newTop; */
+        		ui.position.top = newTop; 
 			},
 			stop: function(event, ui) {
+				$(this).css({
+					"position": "absolute"})
 				$(this).css("opacity", "1"); 
 				$(this).find('.avatar').css("width", "20px");
 		 		$(this).find('.avatar').css("height", "20px");  
@@ -100,14 +105,11 @@ function DragDropHandler(){
            		var t = ( (100 * parseFloat($(this).css("top")) / parseFloat($(this).parent().css("height"))).toFixed(2) );
             	$(this).css("left" , l+"%" );
             	$(this).css("top" , t+"%" );
-				console.log(t);
-				console.log(l);
-				console.log($(this).find('ul').attr("data-floor"));
+			
 				let floor=$(this).find('ul').attr("data-floor");
 
 				$(".seatsPositions"+floor+" tr").filter(function(event, row) {
-					console.log($(row).text());
-					console.log($(ui.helper).find('ul').attr('id'));
+					
 					if($(row).text().indexOf($(ui.helper).find('ul').attr('id')) > -1){
 						$(row).closest("tr").remove();
 					}
@@ -129,10 +131,16 @@ function DragDropHandler(){
 				</tr> `);
 				
 	 		}
-		});
+		}).on('mousedown', function(e) {
+			$(this).css({
+				"position": "relative"})
+		}).mouseleave(function (e) {
+			$(this).css({
+				"position": "absolute"})
+		 });
 }
 
-/*let elem = document.getElementById('')
+let elem = document.getElementById('floors')
 let zoomInButton = document.getElementById('zoomInButton')
 let zoomOutButton = document.getElementById('zoomOutButton')
  let resetButton = document.getElementById('resetButton')
@@ -145,19 +153,12 @@ resetButton.addEventListener('click', panzoom.reset)
 rangeInput.addEventListener('input', (event) => {
   panzoom.zoom(event.target.valueAsNumber)
 })
-elem.parentElement.addEventListener('wheel', panzoom.zoomWithWheel) */
+elem.parentElement.addEventListener('wheel', panzoom.zoomWithWheel) 
 
 function saveSeats(){
 
 	var data=[]
 	$(".seatsPositions tr").each(function(event, row) {
-		console.log($(row).text());
-		console.log($(this).find('.seatNametd').text());
-		console.log($(this).find('.posToptd').text());
-		console.log($(this).find('.posLefttd').text());
-		/* if($(row).text().indexOf($(ui.helper).find('ul').attr('id')) > -1){
-			$(row).closest("tr").remove();
-		} */
 		data.push({
 			seatName:$(this).find('.seatNametd').text(),
 			posTop:$(this).find('.posToptd').text(),
@@ -166,22 +167,6 @@ function saveSeats(){
 		
 	});
 
-/* 	var data=[]
-	$( ".seat" ).each(function (i) {
-		console.log($(this).find("ul").attr("id"));
-		var left = ( 100 * parseFloat($(this).css("left")) / parseFloat($(this).parent().css("width")) ).toFixed(2);
-        var top = ( 100 * parseFloat($(this).css("top")) / parseFloat($(this).parent().css("height")) ).toFixed(2);
-		
-		
-		
-		data.push({
-					seatName:$(this).find("ul").attr("id"),
-					posLeft:left,
-					posTop:top
-		}) 
-		
-	});*/
-   
 	datos = {"_token" :$('#token').val(),"data":data};
 	
 	data=JSON.stringify(datos)
@@ -192,7 +177,7 @@ function saveSeats(){
 		confirmButtonText: 'Save',
 		denyButtonText: `Don't save`,
 	  }).then((result) => {
-		/* Read more about isConfirmed, isDenied below */
+
 		if (result.isConfirmed) {
 			$.ajax({
 				url:'/api/seat/save', 
@@ -202,7 +187,7 @@ function saveSeats(){
 				contentType: "application/json; charset=utf-8",
 				data:JSON.stringify(datos),
 				success:function(resp){	
-					console.log(resp)	
+			
 					Swal.fire('Saved!', '', 'success')
 				}
 			})  

@@ -101,6 +101,15 @@ input[type="checkbox"]:checked ~ .checkbox-list__check:before {
   border: initial;
   
 }
+
+.openSeats{
+	
+  height: 30px;
+  width: 30px;
+  background-color: #f0ecec;
+  border-radius: 50%;
+  border: double 3px #00908a;
+}
         	
 			
 			.lol{
@@ -279,30 +288,23 @@ a {
 }
 
 
-.modal {
+/* .modal {
  
- /*  --bs-modal-bg: #0f1621; */
   opacity: 0.8;
   --bs-border-radius-lg: 1.5rem;
 }
 .modal-content {
-  /* background-color: linear-gradient(90deg, #6a6d74 0%, #0f1621 100%); */
+  
   background: linear-gradient(135deg, #383c45 0%, #0f1621 100%);
 }
 .modal-header {
-  
- /*  margin-left: 15px;
-  margin-right: 15px;  */
-  /* border-bottom:none ; */
   border-top-left-radius: var(--bs-modal-inner-border-radius);
   border-top-right-radius: var(--bs-modal-inner-border-radius);
 }
 
 .modal-footer {
- 
-  border-top: none;
-  
-}
+  border-top: none; 
+} */
 
 .btnSeatName {
   position: absolute;

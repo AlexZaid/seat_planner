@@ -10,7 +10,7 @@
 			$classShared = "";
 		}		
 	@endphp 
-	<div class="divseat" id="divseat{{$seatId}}" style="position: relative; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%; width: 25px;">
+	<div class="divseat" id="divseat{{$seatId}}" style="position: absolute; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%; width: 25px;">
 		<img src="/img/marker.png" class="markerSeat" style="display:none; position: absolute; top: -70px; left:-14px;" width="50" height="50">
 		<ul id="{{$seatId}}" class="seat{{$seat->seatName}} seatdiv employeesassigned {{$classShared.' '.$days}} " style="padding: 0px;">
 		  	
@@ -99,7 +99,10 @@
 
 				@endphp 
 				<div id="open{{$seatId}}" class="opendiv {{$classShared}} open{{$seat->seatName}} {{$classDays}}" style="padding: 0px;">
-				     open 
+				     <div class="openSeats">
+					 <button type="button" id="" onclick="alert('If you want to change seat type change day and shift where there is an employeee assigned')" class="btn btn-primary btnSeatName" style="cursor:pointer;">
+			 {{$seat->seatName}}</button>
+					 </div> 
 				</div>
 	</div>
 @endforeach

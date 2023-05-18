@@ -2,7 +2,7 @@
 	$tbody="";
 @endphp
 @foreach ($seats as $seat )
-	<div class="seat divseat panzoom-exclude " id="divseat{{$seat->seatName}}" style="width: 25px; position: relative; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%;">
+	<div class="seat divseat panzoom-exclude " id="divseat{{$seat->seatName}}" style="width: 25px; position: absolute; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%;">
 		<img src="/img/marker.png" class="markerSeat" style="display:none; position: absolute; top: -70px; left:-14px;" width="50" height="50">
 		<ul id="{{$seat->seatName}}" class="seat{{$seat->seatName}} seatdiv employeesassigned "  data-floor="{{$seat->floor}}" style="height:30px; width:30px; border:3px dashed #1A436C; padding: 0px; z-index: 1;">
 		  	

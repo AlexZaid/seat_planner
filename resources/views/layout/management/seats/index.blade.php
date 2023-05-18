@@ -37,11 +37,11 @@
         <div class="row"> 
                 <div class="col-md-10  col-sm-10  col-xs-10  form-panel"  style="height: 700px; background-color:#212529;">
                   <div id="floors" onselectstart="return false"  style="background-color:#212529; display:none; position:relative; margin:30px auto; height: 650px;width: 1230px; min-width: 1230px;">                                           
-						        <div id="floorMZ" style="background: url('/img/mz.png') no-repeat; position:absolute;  height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor7" style="background: url('/img/7.png') no-repeat; position:absolute;    height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor8" style="background: url('/img/8.png') no-repeat; position:absolute;    height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor9" style="background: url('/img/9.png') no-repeat; position:absolute;    height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor10" style="background: url('/img/PH.png') no-repeat; position:absolute;  height: 650px;width: 1230px; min-width: 1230px;"></div>
+						        <div id="floorMZ" style="background: url('/img/mz.png') no-repeat; position:relative;  height: 650px;width: 1230px; min-width: 1230px;"></div>
+						        <div id="floor7" style="background: url('/img/7.png') no-repeat; position:relative;    height: 650px;width: 1230px; min-width: 1230px;"></div>
+						        <div id="floor8" style="background: url('/img/8.png') no-repeat; position:relative;    height: 650px;width: 1230px; min-width: 1230px;"></div>
+						        <div id="floor9" style="background: url('/img/9.png') no-repeat; position:relative;    height: 650px;width: 1230px; min-width: 1230px;"></div>
+						        <div id="floor10" style="background: url('/img/PH.png') no-repeat; position:relative;  height: 650px;width: 1230px; min-width: 1230px;"></div>
 					        </div>
                 </div>            
                  <div style="z-index:4" id="dropZone" class="col-md-2 col-sm-8 col-xs-8 bg-warning  form-panel" >

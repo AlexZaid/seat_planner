@@ -134,8 +134,7 @@ function DragDropHandler(){
 		   
 		   start: function(event, ui) {			
 			   $(this).hide(); 
-			   $(this).find('ui.tooltip').remove(); 
-			   
+			   $(this).find('ui.tooltip').remove(); 		   
 			},
 		   stop: function(event, ui) {
 			   $(this).css("opacity", "1"); 

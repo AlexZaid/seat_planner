@@ -38,13 +38,6 @@ class LayoutWeeklyUpdate extends Command
      */
     public function handle()
     {   
-        // DB::table('ly_assignations_comparison')->truncate();
-        // DB::unprepared("INSERT INTO ly_assignations_comparison SELECT * FROM ly_assignations");
-        // DB::unprepared("INSERT INTO ly_assignations_historical SELECT * FROM ly_assignations");
-        // DB::table('ly_assignations_comparison')->insert('INSERT INTO `ly_assignations_copy` SELECT * FROM `ly_assignations`;',[DB::raw('SELECT * FROM ly_assignations')]);
-        // DB::table('ly_assignations_comparison')->truncate();
-        // DB::raw('INSERT INTO ly_assignations_comparison SELECT * FROM ly_assignations');
-        // DB::raw("INSERT INTO `ly_assignations_historical` SELECT * FROM `ly_assignations`");
         info('called every minute');
         return 0;
     }

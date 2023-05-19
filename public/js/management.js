@@ -28,13 +28,12 @@ $( document ).ready(function() {
    
 $.when.apply(null, promises).then( function(){
    $('#floors').fadeIn('slow');	
-	   callmeman(false);
-	   DragDropHandler()
-	   dropenables()
-   $('#Mo').click();
-   $('#MZ').click();
-   $('#1').click();
-   
+	   	callmeman(false);
+	   	DragDropHandler()
+	   	dropenables()
+   		$('#Mo').click();
+   		$('#MZ').click();
+   		$('#1').click();
    });
 });
 
@@ -576,5 +575,3 @@ function cleanlookforSeatEmployee(){
    $('.markerSeat').removeClass('markerSeatAnimation').hide();
    $('.divseat').css('z-index', 0);
 }
-
-

@@ -24,14 +24,10 @@ class Ly_seat extends Model
 
                 Ly_seat::where('seatName',$row['seatName'])   
                                 ->update($parameters);     
-                }   
-    
-      
-            // $response=array('status'=>200,'saved'=>'save');
-        
+        }   
+            // $response=array('status'=>200,'saved'=>'save');     
             // $response=array('status'=>500,'error'=>'true');
-        
-        // return  $response;
+            // return  $response;
     }
     
 }

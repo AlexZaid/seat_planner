@@ -130,8 +130,7 @@ function DragDropHandler(){
 				   $(this).css("width", "25px");
 				   $(this).css("height", "65px");
 				   return $("<div style='opacity: 0.9; '></div>").append($(this).find('.avatar').clone());
-		   },	
-		   
+		   },	 
 		   start: function(event, ui) {			
 			   $(this).hide(); 
 			   $(this).find('ui.tooltip').remove(); 		   

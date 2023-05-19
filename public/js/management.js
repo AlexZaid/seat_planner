@@ -29,11 +29,11 @@ $( document ).ready(function() {
 $.when.apply(null, promises).then( function(){
    $('#floors').fadeIn('slow');	
 	   	callmeman(false);
-	   	DragDropHandler()
 	   	dropenables()
    		$('#Mo').click();
    		$('#MZ').click();
    		$('#1').click();
+		DragDropHandler()
    });
 });
 

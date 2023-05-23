@@ -197,7 +197,7 @@ function DragDropHandler(){
 			   $('#checkbox'+$(ui.draggable).attr('value')+dayf).prop('disabled', true);
 			 $(ui.draggable).addClass("edited"); 
 			   oldSeat=$(ui.draggable).attr("data-seat")
-
+			console.log(oldSeat);
 		   
 			   if(oldSeat== "unassigned" ){
 				   $(this).removeClass('Mo Tu We Th Fr')
@@ -211,9 +211,7 @@ function DragDropHandler(){
 
 			   }
 		   
-			   $('#'+oldSeat).find("li.open").addClass('edited')
-			   $('#'+oldSeat).addClass('Mo Tu We Th Fr')
-			   $('#divseat'+oldSeat).find('.opendiv').removeClass('Mo Tu We Th Fr')
+			 
 			   
 
 			   $(this).prop('checked', false);
@@ -265,7 +263,11 @@ function DragDropHandler(){
 				 </tr> `);
 
 				 callmeman(true);
-				    
+				
+				 $('#'+oldSeat).find("li.open").addClass('edited')
+				 $('#'+oldSeat).addClass('Mo Tu We Th Fr')
+				 $('#divseat'+oldSeat).find('.opendiv').removeClass('Mo Tu We Th Fr')
+
 				}
 		   }
 	   });
@@ -400,7 +402,7 @@ function switchBoxes(obj,seatId){
    seatSplit=seatId.split('-'); 
    
    if(obj.checked==false){
-
+		
 		let cont=0;
 	   
 	   for(i=1;i<5;i++){
@@ -447,7 +449,11 @@ function switchBoxes(obj,seatId){
 	   $("#open"+seatId).removeClass('admin')
    }
 
-   
+   if($("#"+seatId).find('li.vat').val()!==undefined){
+		$("#"+seatId).find('li.vat').addClass('edited')	
+	}else{
+		$("#"+seatId).find('li.open').addClass('edited')	
+	}
    checkedboxes(obj,$("#"+seatId).find('li.vat').val())
    
    callmeman(true)
@@ -469,12 +475,13 @@ function saveLayout(){
 			   days+=$(this).attr('value')+','; 
 			 }            
 		   });
-		   shared=$('.sharedSwitchInput'+$(this)[0].parentElement.id).prop('checked')
+		   
 	   }else{
 		   days="Mo,Tu,We,Th,Fr,"
-		   shared=true
+		//    shared=true
 	   }
 
+	   shared=$('.sharedSwitchInput'+$(this)[0].parentElement.id).prop('checked')
 
 	   days = days.slice(0, -1)
 	   data.push({
@@ -575,3 +582,9 @@ function cleanlookforSeatEmployee(){
    $('.markerSeat').removeClass('markerSeatAnimation').hide();
    $('.divseat').css('z-index', 0);
 }
+
+function showModalOpen(){
+	// $('#seatModalMZ154-1').modal('show');
+	// $('#myModal').modal('hide');
+	alert('There is an employee assigned to this seat if you want to change seat type first change day and shift where the employee is assigned ')
+ }

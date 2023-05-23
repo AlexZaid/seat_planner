@@ -100,7 +100,7 @@
 				@endphp 
 				<div id="open{{$seatId}}" class="opendiv {{$classShared}} open{{$seat->seatName}} {{$classDays}}" style="padding: 0px;">
 				     <div class="openSeats">
-					 <button type="button" id="" onclick="alert('If you want to change seat type change day and shift where there is an employeee assigned')" class="btn btn-primary btnSeatName" style="cursor:pointer;">
+					 <button type="button" id="" onclick="showModalOpen()" class="btn btn-primary btnSeatName" style="cursor:pointer;">
 			 {{$seat->seatName}}</button>
 					 </div> 
 				</div>

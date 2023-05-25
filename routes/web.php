@@ -54,7 +54,7 @@ Route::group(['prefix'=>'layout'],function(){
 /* Summary */
 Route::prefix("summary")->middleware(['auth','layoutManager'])->group(function(){
     Route::group(['prefix'=>'facilities'],function(){
-        Route::get('/', [Ly_facilityController::class,'index'])->name('facilities');
+        Route::get('/', [Ly_facilityController::class,'index'])->name('faciliteies');
         Route::get('/summary', [Ly_facilityController::class,'summary'])->name('summary');    
         Route::get('/changes', [Ly_facilityController::class,'changes'])->name('changes');    
         Route::get('/keys', [Ly_keyController::class,'index'])->name('keys');    

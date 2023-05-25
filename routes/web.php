@@ -6,6 +6,7 @@ use App\Http\Controllers\Ly_seatController;
 use App\Http\Controllers\Ly_employeeController;
 use App\Http\Controllers\Ly_facilityController;
 use App\Http\Controllers\Ly_keyController;
+use App\Http\Controllers\Ly_authController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ Route::get('/', function () {
     return redirect('/layout/management/assignation');
 });
 
+Route::get('/login', [Ly_authController::class,'authenticate']);
+Route::post('/login', [Ly_authController::class,'authenticate']);
+Route::post('/logout', [Ly_authController::class,'logout']);
+
 /* Layout */
 Route::group(['prefix'=>'layout'],function(){
     /* Route::group(['prefix'=>'office'],function(){
@@ -31,7 +36,7 @@ Route::group(['prefix'=>'layout'],function(){
         Route::get('/unassignedEmployees', [Ly_employeeController::class,'unassigned_employees']);
     });  */
     
-    Route::group(['prefix'=>'management'],function(){
+    Route::prefix("management")->middleware(['auth','layoutManager'])->group(function(){
         Route::group(['prefix'=>'assignation'],function(){
             Route::get('/', [Ly_assignationController::class,'index']);
             Route::get('/seat/{floor}', [Ly_assignationController::class,'show']);
@@ -47,7 +52,7 @@ Route::group(['prefix'=>'layout'],function(){
 });
 
 /* Summary */
-Route::group(['prefix'=>'summary'],function(){
+Route::prefix("summary")->middleware(['auth','layoutManager'])->group(function(){
     Route::group(['prefix'=>'facilities'],function(){
         Route::get('/', [Ly_facilityController::class,'index'])->name('facilities');
         Route::get('/summary', [Ly_facilityController::class,'summary'])->name('summary');    

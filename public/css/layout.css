@@ -256,8 +256,8 @@ a {
 
 .editEmp {
   position: absolute;
-  top: 60px;
-  left: -18px;
+  top: 45px;
+  left: -3px;
   color: white;
   font-family: Fira Sans Regular;
   font-size: 10px;
@@ -266,7 +266,7 @@ a {
   border-radius: 6px 6px 6px 6px;
   -moz-border-radius: 6px 6px 6px 6px;
   -webkit-border-radius: 6px 6px 6px 6px;
-  background-color: #0001af8f;
+  background-color: #161616;
   width: 60px;
   height: 18px;
   overflow: hidden;

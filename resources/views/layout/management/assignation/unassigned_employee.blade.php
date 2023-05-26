@@ -1,9 +1,9 @@
-<ul id="unassigned" class="employees" style="display: flex; align-content: center; flex-direction: column; align-items: center;">  
+<ul id="unassigned" class="employees" style="display: flex; height:25000px; align-content: center; flex-direction: column; align-items: center;">  
 @foreach ($ly_employee as $employee )      
 				<li class="vat {{$employee->id_emp}}" style="margin-left: 2px; margin-top: 2px;" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$employee->id_emp}}"  data-seat="employees">
 				    <a style="display:none;" href="#">{{$employee->first_name." ".$employee->last_name." ".$employee->id_emp}}</a>
 					<div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
-		    	        <button type="button" style="display:none; left: -4px;top: 52px;position: absolute;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$employee->id_emp}}" class="editEmp buttoninfo{{$employee->id_emp}}" >Edit</button>
+		    	        <button type="button" style="display:none;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$employee->id_emp}}" class="editEmp buttoninfo{{$employee->id_emp}}" ><i class="bi bi-person-vcard"></i></button>
 		    	    </div> 
 				    <div class="avatar picture" id="{{$employee->id_emp}}k" style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$employee->id_emp}}.jpg')">
 				    </div>
@@ -13,7 +13,7 @@
 					  <div class="modal-dialog">
 					    <div class="modal-content">
 					      <div class="modal-header">
-					        <h1 class="modal-title fs-5" id="employeeModalLabel">Modal title</h1>
+					        <h1 class="modal-title fs-5" id="employeeModalLabel">Employee Information</h1>
 					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					      </div>
 					      <div class="modal-body">

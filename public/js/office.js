@@ -1,15 +1,14 @@
 $( document ).ready(function() {
-	let url = document.getElementById("roleEmp").value;
 
 	$.ajax({
-	   url:'/layout/management/assignation/unassignedEmployees',
+	   url:'/layout/office/unassignedEmployees',
 	   success:function(data){	
 		   $('.filterunassignedemployees').append(data);						
 	   }
    })
 
    $.ajax({
-	   url:'/layout/management/assignation/assignedEmployees',
+	   url:'/layout/office/assignedEmployees',
 	   success:function(data){	
 		   $('.filterEmpInLayout').append(data);						
 	   }
@@ -19,7 +18,7 @@ $( document ).ready(function() {
    let promises = [];
    floors.map(function(floor) {
 	   let request=$.ajax({
-		   url:'/layout/management/assignation/seat/'+floor,
+		   url:'/layout/office/seat/'+floor,
 		   async : true,
 		   success:function(data){	
 			   $('#floor'+floor).html(data);						
@@ -34,8 +33,6 @@ $.when.apply(null, promises).then( function(){
    	$('#1').click();
 	$('#floors').fadeIn('slow');	
 	callmeman(false);
-	DragDropHandler()
-	dropenables()
 	
 
    });
@@ -526,22 +523,8 @@ function saveLayout(){
 }	
 
 $('#filterEmp').keyup(function () {
-   var input, upperText, ul, li, a, i, txtValue;
    input = document.getElementById('filterEmp');
    upperText = input.value.toUpperCase();
-   ul = document.getElementById("unassigned");
-   li = ul.getElementsByTagName('li');
- 
-   // Loop through all list items, and hide those who don't match the search query
-   for (i = 0; i < li.length; i++) {
-	 a = li[i].getElementsByTagName("a")[0];
-	 txtValue = a.textContent || a.innerText;
-	 if (txtValue.toUpperCase().indexOf(upperText) > -1) {
-	   li[i].style.display = "";
-	 } else {
-	   li[i].style.display = "none";
-	 }
-   }
 
    $(".employeesInLayout tr").filter(function() {
 		 $(this).toggle($(this).text().toUpperCase().indexOf(upperText) > -1)

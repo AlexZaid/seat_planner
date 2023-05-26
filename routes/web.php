@@ -21,7 +21,7 @@ use App\Http\Controllers\Ly_authController;
 
 Route::get('/', function () {
     // return redirect()->route('layout');
-    return redirect('/layout/management/assignation');
+    return redirect('/layout/office');
 });
 
 Route::get('/login', [Ly_authController::class,'authenticate']);
@@ -30,11 +30,12 @@ Route::post('/logout', [Ly_authController::class,'logout']);
 
 /* Layout */
 Route::group(['prefix'=>'layout'],function(){
-    /* Route::group(['prefix'=>'office'],function(){
-        Route::get('/', [Ly_assignationController::class,'index'])->name('layout');
+     Route::group(['prefix'=>'office'],function(){
+        Route::get('/', [Ly_assignationController::class,'index']);
         Route::get('/seat/{floor}', [Ly_assignationController::class,'show']);
         Route::get('/unassignedEmployees', [Ly_employeeController::class,'unassigned_employees']);
-    });  */
+        Route::get('/assignedEmployees', [Ly_employeeController::class,'assigned_employees']);
+    });  
     
     Route::prefix("management")->middleware(['auth','layoutManager'])->group(function(){
         Route::group(['prefix'=>'assignation'],function(){

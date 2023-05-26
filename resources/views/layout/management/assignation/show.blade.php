@@ -19,7 +19,8 @@
 			style="cursor:pointer;"
 			 data-bs-toggle="modal" data-bs-target="#seatModal{{$seatId}}">
 			 {{$seat->seatName}}</button>
-		   			<div class="modal fade" id="seatModal{{$seatId}}" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
+		   			@auth
+					<div class="modal fade" id="seatModal{{$seatId}}" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
 					  <div class="modal-dialog" >
 					    <div class="modal-content">
 					      <div class="modal-header">
@@ -42,11 +43,12 @@
 					    </div>
 					  </div>
 					</div>
+					@endauth
 		    @if (($seat->id_emp!=0 && $seat->shared==true) || ($seat->id_emp!=0 && $seat->shared==false &&  $seat->shift==1 ) )
 				<li class="vat {{$seat->id_emp}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$seat->id_emp}}" data-seat="{{$seatId}}" style="margin-left: 2px; margin-top: 2px;">
 		    	    <a style="display:none;" href="#">{{$seat->first_name." ".$seat->last_name." ".$seat->id_emp}}</a>		
 					<div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
-		    	        <button type="button" style="display:none; left: -4px;top: 52px;position: absolute;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$seat->id_emp}}" class="editEmp buttoninfo{{$seat->id_emp}}" >Edit</button>
+		    	        <button type="button" style="display:none;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$seat->id_emp}}" class="editEmp buttoninfo{{$seat->id_emp}}" ><i class="bi bi-person-vcard"></i></button>
 		    	    </div> 
 		    	    <div class="avatar picture" id="{{$seat->id_emp}}k" style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$seat->id_emp}}.jpg')">
 		    	    </div>
@@ -56,17 +58,17 @@
 					  <div class="modal-dialog">
 					    <div class="modal-content">
 					      <div class="modal-header">
-					        <h1 class="modal-title fs-5" id="employeeModalLabel">Modal title</h1>
+					        <h1 class="modal-title fs-5" id="employeeModalLabel">Employee Information</h1>
 					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					      </div>
 					      <div class="modal-body">
 					        <b>Weekdays:</b><br/>
 								<div onclick="checkedboxes(this,'{{$seat->id_emp}}')" class="checkbox{{$seat->id_emp}} checkboxesDays">
-									<input type="checkbox" class="MoCheck" id="checkbox{{$seat->id_emp}}Mo" value="Mo" {{ false !== strpos($seat->weekdays, 'Mo') ? 'checked': '' }}> <label for="cbox2">Monday</label><br/>
-									<input type="checkbox" class="TuCheck" id="checkbox{{$seat->id_emp}}Tu" value="Tu" {{ false !== strpos($seat->weekdays, 'Tu') ? 'checked': '' }}> <label for="cbox2">Tuesday</label><br/>
-									<input type="checkbox" class="WeCheck" id="checkbox{{$seat->id_emp}}We" value="We" {{ false !== strpos($seat->weekdays, 'We') ? 'checked': '' }}> <label for="cbox2">Wednesday</label><br/>
-									<input type="checkbox" class="ThCheck" id="checkbox{{$seat->id_emp}}Th" value="Th" {{ false !== strpos($seat->weekdays, 'Th') ? 'checked': '' }}> <label for="cbox2">Thursday</label><br/>
-									<input type="checkbox" class="FrCheck" id="checkbox{{$seat->id_emp}}Fr" value="Fr" {{ false !== strpos($seat->weekdays, 'Fr') ? 'checked': '' }}> <label for="cbox2">Friday</label>
+									<input type="checkbox" class="MoCheck" id="checkbox{{$seat->id_emp}}Mo" value="Mo" {{ false !== strpos($seat->weekdays, 'Mo') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Monday</label><br/>
+									<input type="checkbox" class="TuCheck" id="checkbox{{$seat->id_emp}}Tu" value="Tu" {{ false !== strpos($seat->weekdays, 'Tu') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Tuesday</label><br/>
+									<input type="checkbox" class="WeCheck" id="checkbox{{$seat->id_emp}}We" value="We" {{ false !== strpos($seat->weekdays, 'We') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Wednesday</label><br/>
+									<input type="checkbox" class="ThCheck" id="checkbox{{$seat->id_emp}}Th" value="Th" {{ false !== strpos($seat->weekdays, 'Th') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Thursday</label><br/>
+									<input type="checkbox" class="FrCheck" id="checkbox{{$seat->id_emp}}Fr" value="Fr" {{ false !== strpos($seat->weekdays, 'Fr') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Friday</label>
 								</div>
 					      </div>
 					      <div class="modal-footer">
@@ -100,7 +102,7 @@
 				@endphp 
 				<div id="open{{$seatId}}" class="opendiv {{$classShared}} open{{$seat->seatName}} {{$classDays}}" style="padding: 0px;">
 				     <div class="openSeats">
-					 <button type="button" id="" onclick="showModalOpen()" class="btn btn-primary btnSeatName" style="cursor:pointer;">
+					 <button type="button" id="" onclick="{{Auth::check() ? 'showModalOpen()': ''}}" class="btn btn-primary btnSeatName" style="cursor:pointer;">
 			 {{$seat->seatName}}</button>
 					 </div> 
 				</div>

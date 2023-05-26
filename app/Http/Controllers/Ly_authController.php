@@ -15,17 +15,22 @@ class Ly_authController extends Controller
         ];
     
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            $request->session()->regenerate();
-            return redirect()->intended('layout/management/assignation');
+            $user = Auth::user();  
+            $LayoutManager =DB::select(DB::raw("SELECT count(*) as nReg FROM `ly_manager` where id_emp=".$user->employeenumber[0]));
+           
+            if($LayoutManager[0]->nReg>0){
+                $request->session()->regenerate();            
+                $request->session()->put('LayoutManager', true);
+                return redirect()->intended('layout/management/assignation');
+            }
+            $this->logout($request);       
         }
-        return view ('login');  
+        return redirect('/'); 
     }  
     
     public function logout(Request $request){
         Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->flush();     
+        $request->session()->invalidate();    
         $request->session()->regenerate();
         $request->session()->regenerateToken();
         return redirect()->back(); 

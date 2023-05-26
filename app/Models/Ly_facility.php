@@ -11,6 +11,7 @@ class Ly_facility extends Model
     use HasFactory;
 
     public function summary(){
+       
         $spots =DB::select(DB::raw("SELECT a.seatName,a.shift,a.id_emp,a.weekdays,a.shared,CONCAT(e.first_name,' ',e.last_name ) as emp_name,k.seatKeys
         FROM `ly_assignations` as a 
         left join employee as e on e.id_emp=a.id_emp  

@@ -6,6 +6,7 @@
     <title>Layout</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
@@ -27,18 +28,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+    @auth
     <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Layout
+           <i class="bi bi-person-workspace"></i> Layout
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <li><a class="dropdown-item" href="/layout/office">Office</a></li>
             <li class="nav-item dropdown"><a class="dropdown-item" href="#">Management </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/layout/management/assignation">Assign employees to seats</a></li>
-                    <li><a class="dropdown-item" href="/layout/management/editSeats">Create seats</a></li>
-                </ul>    
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/layout/management/assignation">Assign employees to seats</a></li>
+                <li><a class="dropdown-item" href="/layout/management/editSeats">Create seats</a></li>
+              </ul>    
             </li>
           </ul>
         </li>
@@ -46,23 +48,56 @@
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Summary
+           <i class="bi bi-clipboard2-data"></i> Summary
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <li><a class="dropdown-item" href="/summary/facilities">Facilities Summary</a></li>
           </ul>
         </li>
       </ul>
-      <ul class="navbar-nav">
+      <ul class="nav navbar-nav ms-auto">
         <li class="">
           <form method="POST" action="/logout">
                   @csrf
             <a class="nav-link" href="#" onclick="this.closest('form').submit()" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Logout
+               <i class="bi bi-box-arrow-left"></i>  Logout
             </a>
           </form>
         </li>
       </ul>
+      @else
+      <ul class="nav navbar-nav ms-auto" >
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-fill"></i>  Login
+          </a>
+          <ul class="dropdown-menu" style="left: -150%;">
+            <li> 
+            <div class="card">
+              <div class="card-body">
+                <form method="POST" action="/login">
+                  @csrf
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+         
+        </li>
+      </ul>
+      @endauth
     </div>
   </div>
 </nav>
@@ -75,10 +110,10 @@
 </footer>
 </html>
 <style>
-  .dropdown:hover > .dropdown-menu{
+  /*.dropdown:hover > .dropdown-menu{
     display:block;
 
-  }
+  }*/
 
 
     body{

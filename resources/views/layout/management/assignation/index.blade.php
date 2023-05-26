@@ -39,41 +39,43 @@
                           <input type="radio" class="btn-check" name="shift" id="4" value="4">
                           <label class="btn btn-outline-primary" for="4">4</label>
                         </div>
-                        <div class="btn-group checkboxesDaysMultiple" style="margin-left: 100px;" >
-                          <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input MoCheckMultiple" id="checkboxMultipleMo" value="Mo">  
-                            <label class="form-check-label" style="padding: 1%;" for="flexCheckDefault">
-                              Monday
-                            </label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input TuCheckMultiple" id="checkboxMultipleTu" value="Tu">  
-                            <label class="form-check-label" style="padding: 1%;" for="flexCheckDefault">
-                              Tuesday
-                            </label>
-                          </div>
+                        @auth
+                          <div class="btn-group checkboxesDaysMultiple" style="margin-left: 100px;" >
                             <div class="form-check form-check-inline">
-                              <input type="checkbox" class="form-check-input WeCheckMultiple" id="checkboxMultipleWe" value="We">  
+                              <input type="checkbox" class="form-check-input MoCheckMultiple" id="checkboxMultipleMo" value="Mo">  
                               <label class="form-check-label" style="padding: 1%;" for="flexCheckDefault">
-                                Wednesday
+                                Monday
                               </label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input type="checkbox" class="form-check-input ThCheckMultiple" id="checkboxMultipleTh" value="Th">  
-                              <label class="form-check-label"  style="padding: 1%;" for="flexCheckDefault">
-                                Thursday
-                              </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input type="checkbox" class="form-check-input FrCheckMultiple" id="checkboxMultipleFr" value="Fr">  
+                              <input type="checkbox" class="form-check-input TuCheckMultiple" id="checkboxMultipleTu" value="Tu">  
                               <label class="form-check-label" style="padding: 1%;" for="flexCheckDefault">
-                                Friday
+                                Tuesday
                               </label>
                             </div>
-                        </div>
-                        <div class="btn-group" style="margin-left: 152px;" >
-                          <button type="button" onclick="saveLayout()" class="btn btn-outline-success">Save Layout</button>
-                        </div>
+                              <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input WeCheckMultiple" id="checkboxMultipleWe" value="We">  
+                                <label class="form-check-label" style="padding: 1%;" for="flexCheckDefault">
+                                  Wednesday
+                                </label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input ThCheckMultiple" id="checkboxMultipleTh" value="Th">  
+                                <label class="form-check-label"  style="padding: 1%;" for="flexCheckDefault">
+                                  Thursday
+                                </label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input FrCheckMultiple" id="checkboxMultipleFr" value="Fr">  
+                                <label class="form-check-label" style="padding: 1%;" for="flexCheckDefault">
+                                  Friday
+                                </label>
+                              </div>
+                          </div>
+                          <div class="btn-group" style="margin-left: 152px;" >
+                            <button type="button" onclick="saveLayout()" class="btn btn-outline-success">Save Layout</button>
+                          </div>
+                        @endauth
                 </div>  
           </a>
         </header>
@@ -90,6 +92,7 @@
                 <div class="col-xs-2 col-sm-2 col-md-2 form-panel" >
                     <div class="h-100 p-2 text-bg-dark rounded-3">
                     <input type="text" id="filterEmp" class="mb-2 form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      @auth
                         <b>Employees with not seat</b>
                         <div class=""	style="width:100%;height:300px; overflow-y: scroll;">
                           <table class="table table-dark table-striped-columns">
@@ -105,8 +108,9 @@
                             </tbody>
                           </table>
                         </div>
-                        <b>Employees in Layout</b>
-                        <div class=""	style="width:100%;height:250px; overflow-y: scroll;">
+                      @endauth
+                        <b>Employees and seats in Layout</b>
+                        <div class=""	style="width:100%;height:{{Auth::check() ? '290': '612'}}px; overflow-y: scroll;">
                           <div class="filterEmpInLayout" style="" ></div>
                         </div>
                     </div>
@@ -115,6 +119,11 @@
     </div>
     </div>
      <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+     <input type="hidden" name="roleEmp" id="roleEmp" value="{{ Session::get('LayoutManager') ? 'management/assignation': 'office' }}">
 </main>
-<script src="/js/management.js"></script>
+ @auth
+    <script src="/js/management.js"></script>
+  @else
+    <script src="/js/office.js"></script>
+ @endauth
 @endsection

@@ -25,7 +25,7 @@ class Ly_authController extends Controller
             }
             $this->logout($request);       
         }
-        return redirect()->back(); 
+        return redirect()->intended('layout/office');
     }  
     
     public function logout(Request $request){

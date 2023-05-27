@@ -25,7 +25,7 @@ class Ly_authController extends Controller
             }
             $this->logout($request);       
         }
-        return redirect('/'); 
+        return redirect()->back(); 
     }  
     
     public function logout(Request $request){
@@ -33,7 +33,7 @@ class Ly_authController extends Controller
         $request->session()->invalidate();    
         $request->session()->regenerate();
         $request->session()->regenerateToken();
-        return redirect()->intended('layout/management/assignation'); 
+        return redirect()->back(); 
     }   
 }
 

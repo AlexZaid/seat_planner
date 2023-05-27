@@ -4,16 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Ly_assignation extends Model
 {
     use HasFactory;
-    public function showModel($floor){
-        $spots = Ly_assignation::whereRaw('ly_assignations.seatName like :floor', ['floor' => $floor.'%'])
-                                ->leftJoin('employee', 'employee.id_emp', '=', 'ly_assignations.id_emp')
-                                ->join('ly_seats', 'ly_seats.seatName', '=', 'ly_assignations.seatName')
-                                ->select('ly_assignations.*','ly_seats.*', 'employee.*')
-                                ->get(); 
+    public function showModel($floor,$layoutManager){
+        /* if($layoutManager==true){ */
+            $spots = Ly_assignation::whereRaw('ly_assignations.seatName like :floor', ['floor' => $floor.'%'])
+                                    ->leftJoin('employee', 'employee.id_emp', '=', 'ly_assignations.id_emp')
+                                    ->join('ly_seats', 'ly_seats.seatName', '=', 'ly_assignations.seatName')
+                                    ->select('ly_assignations.*','ly_seats.*', 'employee.*')
+                                    ->get(); 
+       /*  }
+        else{
+
+            $spots = DB::table('ly_assignations_comparison')
+                        ->whereRaw('ly_assignations_comparison.seatName like :floor', ['floor' => $floor.'%'])
+                        ->leftJoin('employee', 'employee.id_emp', '=', 'ly_assignations_comparison.id_emp')
+                        ->join('ly_seats', 'ly_seats.seatName', '=', 'ly_assignations_comparison.seatName')
+                        ->select('ly_assignations_comparison.*','ly_seats.*', 'employee.*')
+                        ->get(); 
+        } */
+        
         return $spots;
     }
 

@@ -6,9 +6,9 @@
 	  <tr>
 	    <th scope="col">seat</th>
 	    <th scope="col">shift</th>
-	    <th scope="col">id_emp</th>
-	    <th scope="col">emp_name</th>
-	    <th scope="col">seatKeys</th>
+	    <th scope="col">employee id</th>
+	    <th scope="col">employee name</th>
+	    <th scope="col">keys</th>
 	  </tr>
 	</thead>
 	<tbody class="searchingcontent">

@@ -12,18 +12,12 @@ class Ly_facility extends Model
 
     public function summary(){
        
-        $spots =DB::select(DB::raw("SELECT a.seatName,a.shift,a.id_emp,a.weekdays,a.shared,CONCAT(e.first_name,' ',e.last_name ) as emp_name,k.seatKeys
-        FROM `ly_assignations` as a 
-        left join employee as e on e.id_emp=a.id_emp  
-        INNER JOIN ly_keys as k on k.seatName=a.seatName and k.shift=a.shift
-    where a.id_emp>0 Group by id_emp,shift 
-    union ALL
-    
-    SELECT a.seatName,a.shift,a.id_emp,a.weekdays,a.shared,CONCAT(' Seat open') as emp_name,k.seatKeys
-            FROM `ly_assignations` as a 
-            INNER JOIN ly_keys as k on k.seatName=a.seatName and k.shift=a.shift
-        where a.id_emp =0 Group by seatName,shift  
-    ORDER BY seatName,shift  ASC"));
+        $spots =DB::select(DB::raw("SELECT a.seatName,a.shift,a.seatKeys,a.weekdays,a.shared,e.id_emp,CONCAT(e.first_name,' ',e.last_name) as emp_name FROM `ly_assignations` as a LEFT JOIN employee as e on a.id_emp=e.id_emp  
+                                    WHERE a.shared=1
+                                    UNION ALL
+                                    SELECT a.seatName,a.shift,a.seatKeys,a.weekdays,a.shared,e.id_emp,CONCAT(e.first_name,' ',e.last_name) as empName FROM `ly_assignations` as a LEFT JOIN employee as e on a.id_emp=e.id_emp  
+                                    WHERE a.shared=0 AND a.shift=1  
+                                    ORDER BY `shared` ASC"));
 
         return $spots;
     }
@@ -36,9 +30,10 @@ class Ly_facility extends Model
         LEFT JOIN employee AS eNew ON live.id_emp=eNew.id_emp
         LEFT JOIN employee AS eOld ON old.id_emp=eOld.id_emp
         WHERE live.id_emp != old.id_emp  
-        ORDER BY `live`.`seatName` ASC) AS subquery
+        ) AS subquery
         LEFT JOIN employee AS empNew on empNew.id_emp=subquery.newIdemp
         LEFT JOIN ly_assignations_comparison AS oldLayout on empNew.id_emp=oldLayout.id_emp
+        ORDER BY subquery.oldSeat ASC
         "));
 
         return $changes;

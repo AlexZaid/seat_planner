@@ -108,17 +108,14 @@ function SaveInput(){
 	datas = [{name:"shiftEdited",value:shiftEdited},{name:"keysEdited",value:keysEdited},{name:"accion",value:2},{name:"seatsEdt",value:seatsEdt}];
 	 $.ajax({
         data: datas,
-        url: '../pages/_layoutsystem/saveUpdateKeys.php',
+        url: '',
         type: 'post',
         beforeSend: function () {
 
         },
         success: function (response) {
-           $("#keysupdtable").empty();
-            $("#keysupdtable").removeData();
-            $("#keysupdtable").html('');
-            $("#keysupdtable").html(response);
-			alertify.success("Keys updated");
+          
+			Swal.fire('Saved!', '', 'success')	
         }
         
     }); 

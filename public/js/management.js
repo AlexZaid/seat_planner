@@ -60,7 +60,11 @@ function shiftAndDayValue(){
 	   $('#checkboxMultiple'+day).prop('checked',true);
 	   $('#checkboxMultiple'+day).prop('disabled',true);
 	//    $('.admin').show();
-
+	$('.checkboxesDays input').each(function() {		   
+		
+		$(this).prop('disabled', false);
+	})
+	$('.'+day+'Check').prop('disabled',true);
 }
 
 function showButton(element) {   

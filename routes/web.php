@@ -24,8 +24,7 @@ Route::get('/', function () {
     return redirect('/layout/office');
 });
 
-Route::get('/login', [Ly_authController::class,'authenticate']);
-Route::post('/login', [Ly_authController::class,'authenticate']);
+Route::match(['get', 'post'], '/login', [Ly_authController::class,'authenticate']);
 Route::post('/logout', [Ly_authController::class,'logout']);
 
 /* Layout */
@@ -59,5 +58,6 @@ Route::prefix("summary")->middleware(['auth','layoutManager'])->group(function()
         Route::get('/summary', [Ly_facilityController::class,'summary'])->name('summary');    
         Route::get('/changes', [Ly_facilityController::class,'changes'])->name('changes');    
         Route::get('/keys', [Ly_keyController::class,'index'])->name('keys');    
+        Route::post('/saveKeys', [Ly_keyController::class,'store']);  
     });  
 });

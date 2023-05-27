@@ -35,13 +35,14 @@
            <i class="bi bi-person-workspace"></i> Layout
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="/layout/office">Office</a></li>
-            <li class="nav-item dropdown"><a class="dropdown-item" href="#">Management </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="/layout/management/assignation">Assign employees to seats</a></li>
+            <!--<li><a class="dropdown-item" href="/layout/office">Office</a></li>
+             <li class="nav-item dropdown"><a class="dropdown-item" href="#">Management </a>
+             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="/layout/management/assignation">Assign employees to seats</a></li>
                 <li><a class="dropdown-item" href="/layout/management/editSeats">Create seats</a></li>
-              </ul>    
-            </li>
+              </ul>   
+            </li>--> 
           </ul>
         </li>
       </ul>

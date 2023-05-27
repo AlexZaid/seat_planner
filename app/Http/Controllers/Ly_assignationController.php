@@ -13,7 +13,8 @@ class Ly_assignationController extends Controller
     
     public function show(Request $request,$floor){
         $seats=new Ly_assignation();  
-        return view('layout.management.assignation.show',['seats'=> $seats->showModel($floor)]);
+        $layoutManager=$request->session()->has('LayoutManager');
+        return view('layout.management.assignation.show',['seats'=> $seats->showModel($floor,$layoutManager)]);
     }
 
     public function store(Request $request){    

@@ -16,5 +16,12 @@ class Ly_facilityController extends Controller
         $summaries=$Ly_facility->summary();
         return view('summary.facility.summary',['summaries'=> $summaries]);
    
+    } 
+    
+    public function changes(){
+        $Ly_facility=new Ly_facility();
+        $changes=$Ly_facility->changes();
+        return view('summary.facility.changes',['changes'=> $changes]);
+   
     }
 }

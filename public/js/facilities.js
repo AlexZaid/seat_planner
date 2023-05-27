@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 	loadSummary()
-	// loadChanges()
+	loadChanges()
 	loadKeys()
 });
 
@@ -14,24 +14,10 @@ function loadSummary(){
 }
 
 function loadChanges(){
-	var data = {
-        "_token": $('#token').val(),
-		"seatName": "sas",
-		"floor": "9",
-		"description": "sas",
-		"posLeft": "sas",
-		"posTop": "sas"
-    };
-
 	$.ajax({
-		url:'/api/seat/save', 
-		type: 'post',
-		dataType: 'json',
-		async: false,
-		contentType: "application/json; charset=utf-8",
-		data:JSON.stringify(data),
-		success:function(resp){	
-			console.log(resp)		
+		url:'/summary/facilities/changes',
+		success:function(data){	
+			$('.filterchanges').append(data);						
 		}
 	})
 }

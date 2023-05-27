@@ -33,7 +33,7 @@ class Ly_authController extends Controller
         $request->session()->invalidate();    
         $request->session()->regenerate();
         $request->session()->regenerateToken();
-        return redirect()->back(); 
+        return redirect()->intended('layout/management/assignation');
     }   
 }
 

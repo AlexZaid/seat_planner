@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ly_seatController;
 use App\Http\Controllers\Ly_assignationController;
+use App\Http\Controllers\Ly_keyLoanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,8 @@ Route::group(['prefix'=>'seat'],function(){
 
 Route::group(['prefix'=>'layout'],function(){
     Route::post('save', [Ly_assignationController::class,'store']);
+});
+
+Route::group(['prefix'=>'keyLoan'],function(){
+    Route::post('save', [Ly_keyLoanController::class,'store']);
 });

@@ -8,7 +8,13 @@ use App\Models\Ly_keyLoan;
 class Ly_keyLoanController extends Controller
 {
     public function index(){
-        dd(Ly_keyLoan::all());
-        // return view('summary.facility.keys',['keys'=>Ly_key::all()]);
+        $Ly_keyLoan=new Ly_keyLoan();
+        return view('summary.facility.keyloan',['keyloans'=>$Ly_keyLoan->showModel()]);
+    }  
+
+    public function store(Request $request){
+        $Ly_keyLoan=new Ly_keyLoan();
+        $Ly_keyLoan->storeModel($request);
+        $this->index();
     }  
 }

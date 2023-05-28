@@ -25,7 +25,7 @@ class Ly_authController extends Controller
             }
             $this->logout($request);       
         }
-        return redirect()->intended('layout/office');
+        return redirect()->intended('layout/office')->with(['error'=>'You do not have permissions to access ']);
     }  
     
     public function logout(Request $request){

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Ly_employee;
-use Illuminate\Http\Request;
 
 class Ly_employeeController extends Controller
 {

@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	loadSummary()
 	loadChanges()
 	loadKeys()
+	loadKeyLoans()
 });
 
 function loadSummary(){
@@ -27,6 +28,15 @@ function loadKeys(){
 		url:'/summary/facilities/keys',
 		success:function(data){	
 			$('.filterkeys').append(data);						
+		}
+	})
+}
+
+function loadKeyLoans(){
+	$.ajax({
+		url:'/summary/facilities/keyLoan',
+		success:function(data){	
+			$('.filterKeyLoans').append(data);						
 		}
 	})
 }

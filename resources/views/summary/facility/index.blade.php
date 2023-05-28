@@ -11,13 +11,16 @@
                 <div class="col-md-10 form-panel"  style="margin:0 auto; margin-top:15px;  ">
                       <ul class="nav nav-tabs">
                           <li class="nav-item">
-                              <a href="#Summary" class="nav-link active" data-bs-toggle="tab">Summary</a>
+                              <a href="#Summary" class="nav-link active" data-bs-toggle="tab"><i class="bi bi-list-columns-reverse"></i> Summary</a>
                           </li>
                           <li class="nav-item">
-                              <a href="#Changes" class="nav-link" data-bs-toggle="tab">Changes</a>
+                              <a href="#Changes" class="nav-link" data-bs-toggle="tab"><i class="bi bi-people-fill"></i> Changes</a>
                           </li>
                           <li class="nav-item">
-                              <a href="#Keys" class="nav-link" data-bs-toggle="tab">Keys</a>
+                              <a href="#Keys" class="nav-link" data-bs-toggle="tab"><i class="bi bi-key-fill"></i>  Keys</a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="#KeyLoans" class="nav-link" data-bs-toggle="tab"><i class="bi bi-lock-fill"></i> Keys to deliver</a>
                           </li>
                       </ul>
                       <div class="tab-content">
@@ -30,6 +33,12 @@
                           </div>
                           <div class="tab-pane fade" id="Keys">
                               <div class="filterkeys" style="margin:0 auto;width:70%; height: 700px; overflow-y:auto"></div>
+                          </div>
+                          <div class="tab-pane fade" id="KeyLoans">
+                            <div style="margin-left: 78%;margin-top: 2%;">
+                                <button type="button" onclick="savekeyLoans()" class="btn btn-outline-success">Save</button>                            
+                            </div>
+                              <div class="filterKeyLoans" style="margin:0 auto;width:70%; height: 700px; overflow-y:auto"></div>
                           </div>
                       </div>         
                 </div>                  

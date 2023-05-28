@@ -420,7 +420,7 @@ function switchBoxes(obj,seatId){
 
 	   }
 	   if(cont>1){
-		console.log("multiple EMPLOYEEs please unassign  and leave just one");
+		alert("multiple EMPLOYEES please unassign and leave just one");
 		$(".sharedSwitchInput"+seatId).prop('checked',true)
 	   }else{
 		$("#switchText"+seatId).text('Not Shared')

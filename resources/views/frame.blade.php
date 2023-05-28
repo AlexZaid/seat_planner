@@ -74,8 +74,13 @@
           </a>
           <ul class="dropdown-menu" style="left: -150%;">
             <li> 
-            <div class="card">
+            <div class="card" style="border: none;">
               <div class="card-body">
+              @if (session()->get('error'))
+                <div class="alert alert-danger" role="alert">
+                  {{ session()->get('error') }}
+                </div>
+              @endif          
                 <form method="POST" action="/login">
                   @csrf
                   <div class="form-group">
@@ -86,13 +91,13 @@
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <br/>
+                  <button type="submit" class="btn btn-primary" style="">Submit</button>
                 </form>
               </div>
             </div>
             </li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
          

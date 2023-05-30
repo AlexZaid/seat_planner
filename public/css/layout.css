@@ -254,6 +254,10 @@ a {
   color: #00908A;
 }
 
+a:hover {
+  text-decoration:underline;
+}
+
 .editEmp {
   position: absolute;
   top: 45px;

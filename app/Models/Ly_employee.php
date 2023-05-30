@@ -37,7 +37,7 @@ class Ly_employee extends Model
                                 ->where('ly_assignations.shared', '=', true)
                                 ->select('ly_assignations.*', 'employee.*')
                                 ->union($adminEmp)
-                                ->orderBy('seatName')
+                                ->orderBy('seatName', 'DESC')
                                 ->get(); 
         return $employees;
     }

@@ -92,9 +92,12 @@
                 <div class="col-xs-2 col-sm-2 col-md-2 form-panel" >
                     <div class="h-100 p-2 rounded-3" style="background-color: #cdced0;">
                     <input type="text" id="filterEmp" class="mb-2 form-control" placeholder="Type Seat,Employee or EmpId" aria-label="Username" aria-describedby="basic-addon1">
+                      <div class="alert alert-info" role="alert">
+                         Click on Seat to locate it in layout.
+                      </div>
                       @auth
                         <b>Employees with not seat</b>
-                        <div class=""	style="width:100%;height:300px; overflow-y: scroll;">
+                        <div class=""	style="width:100%;height:270px; overflow-y: scroll;">
                           <table class="table table-striped-columns">
                             <thead>
                               <tr>
@@ -110,7 +113,7 @@
                         </div>
                       @endauth
                         <b>Employees and seats in Layout</b>
-                        <div class=""	style="width:100%;height:{{Auth::check() ? '290': '612'}}px; overflow-y: scroll;">
+                        <div class=""	style="width:100%;height:{{Auth::check() ? '246': '538'}}px; overflow-y: scroll;">
                           <div class="filterEmpInLayout" style="" ></div>
                         </div>
                     </div>

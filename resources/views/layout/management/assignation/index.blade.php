@@ -80,7 +80,7 @@
           </a>
         </header>
         <div class="row"> 
-                <div class="col-md-10  col-sm-10  col-xs-10  form-panel"  style="height: 700px; background-color:#212529;">
+                <div class="col-md-10  col-sm-10  col-xs-10  form-panel"  style="height: 700px; background-color: #cdced0;">
                   <div id="floors" onselectstart="return false"  style="background-color: #cdced0; display:none; position:relative; margin:30px auto; height: 650px;width: 1230px; min-width: 1230px;">                                           
 						        <div id="floorMZ" style="background: url('/img/mz.png') no-repeat; position:relative;   height: 650px;width: 1230px; min-width: 1230px;"></div>
 						        <div id="floor7" style="background: url('/img/7.png') no-repeat; position:relative;     height: 650px;width: 1230px; min-width: 1230px;"></div>
@@ -91,7 +91,7 @@
                 </div>            
                 <div class="col-xs-2 col-sm-2 col-md-2 form-panel" >
                     <div class="h-100 p-2 rounded-3" style="background-color: #cdced0;">
-                    <input type="text" id="filterEmp" class="mb-2 form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="filterEmp" class="mb-2 form-control" placeholder="Type Seat,Employee or EmpId" aria-label="Username" aria-describedby="basic-addon1">
                       @auth
                         <b>Employees with not seat</b>
                         <div class=""	style="width:100%;height:300px; overflow-y: scroll;">

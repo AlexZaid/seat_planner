@@ -39,7 +39,6 @@
                                 <button type="button" onclick="savekeyLoans()" class="btn btn-outline-success">Save</button>                            
                             </div>
                               <div class="filterKeyLoans" style="margin:0 auto;width:70%; height: 700px; overflow-y:auto">
-                              szxczxczx
                               </div>
                           </div>
                       </div>         

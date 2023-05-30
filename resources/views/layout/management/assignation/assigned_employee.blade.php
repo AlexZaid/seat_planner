@@ -3,8 +3,8 @@
 	  <tr>
 	    <th scope="col">Seat</th>
 	    <th scope="col">Shift</th>
-	    <th scope="col">EmpId</th>
-		<th scope="col">Employee</th>
+	    <th scope="col">Employee</th>
+		<th scope="col">EmpId</th>
 	  </tr>
 	</thead>
 	<tbody class="employeesInLayout" >

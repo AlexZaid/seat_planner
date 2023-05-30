@@ -251,7 +251,7 @@ text-align: center;
 }
 
 a {
-  color: aquamarine;
+  color: #00908A;
 }
 
 .editEmp {
@@ -285,6 +285,12 @@ a {
   position:relative;
   top:26%;
   left:25%;
+}
+
+#filterEmp::placeholder {
+  font-weight: lighter;
+  opacity: 0.5;
+  color: rgba(38, 38, 38, 0.644);
 }
 
 

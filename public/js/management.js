@@ -36,7 +36,8 @@ $.when.apply(null, promises).then( function(){
 	callmeman(false);
 	DragDropHandler()
 	dropenables()
-	
+	$('.spinload').remove();	
+	$('#unassignedEmpTable').fadeIn('slow');
 
    });
 });

@@ -81,8 +81,13 @@
         </header>
         <div class="row"> 
                 <div class="col-md-10  col-sm-10  col-xs-10  form-panel"  style="height: 700px; background-color: #cdced0;">
+                  <div style="margin-top: 20%;" class="spinload d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                            </div>
+                    </div>
                   <div id="floors" onselectstart="return false"  style="background-color: #cdced0; display:none; position:relative; margin:30px auto; height: 650px;width: 1230px; min-width: 1230px;">                                           
-						        <div id="floorMZ" style="background: url('/img/mz.png') no-repeat; position:relative;   height: 650px;width: 1230px; min-width: 1230px;"></div>
+                    <div id="floorMZ" style="background: url('/img/mz.png') no-repeat; position:relative;   height: 650px;width: 1230px; min-width: 1230px;"></div>
 						        <div id="floor7" style="background: url('/img/7.png') no-repeat; position:relative;     height: 650px;width: 1230px; min-width: 1230px;"></div>
 						        <div id="floor8" style="background: url('/img/8.png') no-repeat; position:relative;     height: 650px;width: 1230px; min-width: 1230px;"></div>
 						        <div id="floor9" style="background: url('/img/9.png') no-repeat; position:relative;     height: 650px;width: 1230px; min-width: 1230px;"></div>
@@ -98,7 +103,12 @@
                       @auth
                         <b>Employees with not seat</b>
                         <div class=""	style="width:100%;height:270px; overflow-y: scroll;">
-                          <table class="table table-striped-columns">
+                          <div style="margin-top: 40%;" class="spinload d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                            </div>
+                          </div>
+                          <table style="display:none;" id="unassignedEmpTable" class="table table-striped-columns">
                             <thead>
                               <tr>
                             		<th></th>

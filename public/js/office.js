@@ -33,7 +33,7 @@ $.when.apply(null, promises).then( function(){
    	$('#1').click();
 	$('#floors').fadeIn('slow');	
 	callmeman(false);
-	
+	$('.spinload').remove();
 
    });
 });

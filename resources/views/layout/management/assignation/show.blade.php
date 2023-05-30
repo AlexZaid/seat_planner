@@ -11,7 +11,7 @@
 		}		
 	@endphp 
 	<div class="divseat" id="divseat{{$seatId}}" style="position: absolute; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%; width: 25px;">
-		<img src="/img/marker.png" class="markerSeat" style="display:none; position: absolute; top: -70px; left:-14px;" width="50" height="50">
+		<img src="/img/marker.png" class="markerSeat" style="display:none; position: absolute; top: -70px; left:-11px;" width="50" height="50">
 		<ul id="{{$seatId}}" class="seat{{$seat->seatName}} seatdiv employeesassigned {{$classShared.' '.$days}} " style="padding: 0px;">
 		  	
 			<button type="button" id="seatButton{{$seatId}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" value="{{$seatId}}" data-element="seat" 

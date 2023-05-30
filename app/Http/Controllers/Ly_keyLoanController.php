@@ -14,7 +14,7 @@ class Ly_keyLoanController extends Controller
 
     public function store(Request $request){
         $Ly_keyLoan=new Ly_keyLoan();
-        $Ly_keyLoan->storeModel($request);
-        $this->index();
+        return response()->json($Ly_keyLoan->storeModel($request));
+       
     }  
 }

@@ -99,9 +99,13 @@ function savekeyLoans(){
 			async: false,
 			contentType: "application/json; charset=utf-8",
 			data:JSON.stringify(datos),
-			success:function(resp){	
-				console.log(resp)
-				Swal.fire('Saved!', '', 'success')		
+			beforeSend:function(){
+				$('.filterKeyLoans').empty();	
+			},
+			success:function(){	
+				
+				Swal.fire('Saved!', '', 'success')	
+				loadKeyLoans()	
 			}
 		})
 	 

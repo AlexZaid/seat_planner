@@ -203,8 +203,9 @@ function DragDropHandler(){
 			   $('#checkbox'+$(ui.draggable).attr('value')+dayf).prop('checked', true);	
 			   $('#checkbox'+$(ui.draggable).attr('value')+dayf).prop('disabled', true);
 			 $(ui.draggable).addClass("edited"); 
-			   oldSeat=$(ui.draggable).attr("data-seat")
-			console.log(oldSeat);
+			   	oldSeat=$(ui.draggable).attr("data-seat")
+			   	oldSeatShift=oldSeat.split('-');
+				console.log(oldSeat);
 		   
 			   if(oldSeat== "unassigned" ){
 				   $(this).removeClass('Mo Tu We Th Fr')
@@ -215,11 +216,7 @@ function DragDropHandler(){
 						   $('#divseat'+$(this).attr("id")).find('.opendiv').addClass(element)
 					   }
 				   });
-
 			   }
-		   
-			 
-			   
 
 			   $(this).prop('checked', false);
 			   $(ui.draggable).attr("data-seat",$(this).attr("id"))
@@ -245,16 +242,38 @@ function DragDropHandler(){
 					   $('#divseat'+ulSpot).find('.opendiv').addClass(element)
 				   }
 			   });
-
+			 
 			   $(".employeesInLayout tr").filter(function(event, row) {
+				console.log($(ui.draggable).val());
 				   if($(row).text().indexOf($(ui.draggable).val()) > -1){
 					   $(row).closest("tr").remove();
-				   }
-				   
-				 });
+				   	}  
+				   console.log($(this).find('td').eq(0).text().trim());
+				   if($(this).find('td').eq(0).text().trim() == seatShift[0] && $(this).find('td').eq(1).text().trim() == seatShift[1]){
+						$(row).closest("tr").remove();
+					}
 
-
-			   $('.employeesInLayout').append(`<tr>
+					if($(this).find('td').eq(0).text().trim() == oldSeatShift[0] && $(this).find('td').eq(1).text().trim() == oldSeatShift[1]){
+						$('.employeesInLayout').prepend(`<tr>
+						<td>
+							<a href="#" OnClick="lookforSeatEmployee('${oldSeat}','','Mo,Tu,We,Th,Fr')">${oldSeatShift[0]}</a>
+						</td>
+						<td>
+						   <a href="#" OnClick="lookforSeatEmployee('${oldSeat}','','Mo,Tu,We,Th,Fr')">${oldSeatShift[1]}</a>
+					   </td>
+					   <td>
+						   <a href="#" OnClick="lookforSeatEmployee('${oldSeat}','','Mo,Tu,We,Th,Fr')"></a>
+					   </td>
+					   <td>
+						   <a href="#" OnClick="lookforSeatEmployee('${oldSeat}','','Mo,Tu,We,Th,Fr')"></a>
+						   </td>
+						  </tr> `);
+					}
+				});
+				
+				
+				// console.log($(`.employeesInLayout tr:contains('MZ161')  and `).remove());
+			   $('.employeesInLayout').prepend(`<tr>
 			   <td>
 				   <a href="#" OnClick="lookforSeatEmployee('${$(this).attr("id")}','${$(ui.draggable).val()}','${dayf}')">${seatShift[0]}</a>
 			   </td>
@@ -274,7 +293,7 @@ function DragDropHandler(){
 				 $('#'+oldSeat).find("li.open").addClass('edited')
 				 $('#'+oldSeat).addClass('Mo Tu We Th Fr')
 				 $('#divseat'+oldSeat).find('.opendiv').removeClass('Mo Tu We Th Fr')
-
+				 $('#filterEmp').keyup();
 				}
 		   }
 	   });

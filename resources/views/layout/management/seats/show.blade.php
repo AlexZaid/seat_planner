@@ -36,7 +36,7 @@
 					</div>
 				<li class="vat "   data-element="employee" value="" data-seat="{{$seat->seatName}}" style="margin-left: 2px; margin-top: 2px;">
 		    	    <a style="display:none;" href="#"></a>		
-					<div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
+					<div style="height: 21px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
 		    	        <button type="button" style="display:none; left: -4px;top: 52px;position: absolute;" data-bs-toggle="modal" data-bs-target="#employeeModal" class="editEmp buttoninfo" >Edit</button>
 		    	    </div> 
 		    	    <div class="avatar picture" id="" style="">

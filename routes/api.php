@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ly_seatController;
 use App\Http\Controllers\Ly_assignationController;
 use App\Http\Controllers\Ly_keyLoanController;
+use App\Http\Controllers\Ly_keyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,10 @@ Route::group(['prefix'=>'seat'],function(){
 
 Route::group(['prefix'=>'layout'],function(){
     Route::post('save', [Ly_assignationController::class,'store']);
+});
+
+Route::group(['prefix'=>'key'],function(){
+    Route::post('save', [Ly_keyController::class,'store']);
 });
 
 Route::group(['prefix'=>'keyLoan'],function(){

@@ -10,6 +10,7 @@
 	<thead>
 	  <tr>
 	    <th scope="col">Seat</th>
+	    <th scope="col">Shift</th>
 	    <th scope="col">Key</th>
 	    <th scope="col">Update</th>
 	  </tr>
@@ -18,12 +19,15 @@
 @foreach ($keys as $key )      
    <tr>
      <th scope="row">{{$key->seatName}}</th>
+     <th scope="row">{{$key->shift}}</th>
      <td><input class="form-control" 
 	 			name="{{$key->shift}}" 
 				id="inptxt{{$key->seatName}}" 
 				type="text"  
 				value="{{$key->seatKeys}}" 
-				disabled="disabled">
+				disabled="disabled"
+				data-infokey="{{$key->seatName}},{{$key->shift}}"
+				>
      	</td>
      	<td>
 	 		<center>
@@ -88,27 +92,23 @@ $("#inptxt"+idseat).prop('disabled', true);
 }
 
 function SaveInput(){
-     	var keysEdited ="";
-       	$( ".edited" ).each(function (i) {
-       	keysEdited += $(this).val()+",";					
-      	});
-				
-		var seatsEdt ="";
-       	$( ".edited" ).each(function (i) {
-			seatid=$(this).attr('id').slice(6);
-			seatid = seatid.substring(0, seatid.length - 1);
-       	seatsEdt += seatid+",";					
-      	});
-		
-		var shiftEdited ="";
-       	$( ".edited" ).each(function (i) {
-			shiftEdited += $(this).attr('name')+",";					
-      	});
-	
-	datas = [{name:"shiftEdited",value:shiftEdited},{name:"keysEdited",value:keysEdited},{name:"accion",value:2},{name:"seatsEdt",value:seatsEdt}];
-	 $.ajax({
-        data: datas,
-        url: '',
+
+	var data=[]
+    
+    $( '.edited' ).each(function (i) {
+	    let information=$(this).attr('data-infokey');
+        let info=information.split(',');
+        data.push({
+				   spot:info[0],
+				   shift:info[1],
+				   seatKey:$(this).val()
+			    })
+   });
+   datos = {"_token" :$('#token').val(),"data":data};
+   console.log(datos);
+  	$.ajax({
+        data: datos,
+        url: '/api/key/save',
         type: 'post',
         beforeSend: function () {
 
@@ -118,7 +118,7 @@ function SaveInput(){
 			Swal.fire('Saved!', '', 'success')	
         }
         
-    }); 
+    });
 
 }
 </script>

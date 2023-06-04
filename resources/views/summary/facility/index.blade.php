@@ -48,5 +48,5 @@
     </div>
      <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 </main>
-<script src="/js/facilities.js"></script>
+<script src="/js/facilities.js?v=1"></script>
 @endsection

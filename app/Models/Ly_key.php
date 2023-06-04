@@ -14,54 +14,22 @@ class Ly_key extends Model
     public function storeModel($request){  
           
 	    foreach($request->data as $row) {
-            $parameters=array('id_emp' => $row['empid'],
-            'weekdays' => $row['days'],   
-            'shared' =>  $row['shared']
-          );
+            $parameters=array('seatKeys' => $row['seatKey']);
 
-
-                $shared = Ly_assignation::where('seatName',$row['spot'])
-                                      ->where('shift',$row['shift'])
-                                      ->select('ly_assignations.shared')
-                                      ->get(); 
-
-        
-                if ($row['shared']==true&&$shared[0]['shared']==false){
-                    $params=array('id_emp' => 0,
-                              'weekdays' => 'Mo,Tu,We,Th,Fr',   
-                              'shared' =>  $row['shared']
-                            );
-
-                    Ly_assignation::where('seatName',$row['spot'])
-                    ->where(function($query) use($row)
-                    {  
-                        $query->orWhere('shift', '=', '1')
-                                ->orWhere('shift', '=', '2')
-                                ->orWhere('shift', '=', '3')
-                                ->orWhere('shift', '=', '4');
-                        
-                    })     
-                    ->update($params);     
-
-                }
-            
-
-                Ly_assignation::where('seatName',$row['spot'])
-                                ->where(function($query) use($row)
-                                {  
-                                    if($row['shared']==false){
+            Ly_assignation::where('seatName',$row['spot'])
+                            ->where(function($query) use($row)
+                            {  
+                                if($row['shift']=='1' || $row['shift']=='4'){
                                     $query->orWhere('shift', '=', '1')
-                                            ->orWhere('shift', '=', '2')
-                                            ->orWhere('shift', '=', '3')
                                             ->orWhere('shift', '=', '4');
-                                    }else{
-                                        $query->where('shift',$row['shift']);
-                                    }
-                                })     
-                                ->update($parameters);     
-                }
-                                   
-        
+                                }else{
+                                    $query ->orWhere('shift', '=', '2')
+                                            ->orWhere('shift', '=', '3');
+                                }
+                            })     
+                            ->update($parameters);     
+        }
+                                        
         // return  $data;
     }
 

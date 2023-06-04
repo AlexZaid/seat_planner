@@ -135,8 +135,8 @@
      <input type="hidden" name="roleEmp" id="roleEmp" value="{{ Session::get('LayoutManager') ? 'management/assignation': 'office' }}">
 </main>
  @auth
-    <script src="/js/management.js"></script>
+    <script src="/js/management.js?v=1"></script>
   @else
-    <script src="/js/office.js"></script>
+    <script src="/js/office.js?v=1"></script>
  @endauth
 @endsection

@@ -9,7 +9,7 @@
 			<button type="button" id="seatButton{{$seat->seatName}}" value="{{$seat->seatName}}" data-element="seat" 
 			class="btn btn-primary btnSeatName" 
 			style="cursor:pointer;"
-			 data-bs-toggle="modal" data-bs-target="#seatModal{{$seat->seatName}}">
+			 >
 			 {{$seat->seatName}}</button>
 		   			<div class="modal fade" id="seatModal{{$seat->seatName}}" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
 					  <div class="modal-dialog" >

@@ -17,19 +17,21 @@
 	  </tr>
 	</thead>
 	<tbody class="searchingchange">
-@foreach ($changes as $change )      
+@foreach ($changes as $change ) 
+	@if(($change->newShared==false && $change->newShift==1)||(($change->newShared==true)) )
    <tr>
      <td>{{$change->oldSeat}}</td>
      <td>{{$change->oldShift}}</td>
-     <td>{{$change->oldShared}}</td>
+     <td>{{$change->oldShared ? 'shared': 'not shared' }}</td>
      <td>{{$change->newSeat}}</td>
      <td>{{$change->newShift}}</td>
+     <td>{{$change->newShared ? 'shared': 'not shared' }}</td>
      <td>{{$change->newShared}}</td>
-     <td>{{$change->oldKeys}}</td>
      <td>{{$change->newKeys}}</td>
      <td>{{$change->newIdemp}}</td>
      <td>{{$change->newEmpName}}</td>
-   </tr>                          
+   </tr> 
+   @endif                         
 @endforeach
 	</tbody>
 </table>

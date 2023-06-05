@@ -22,7 +22,11 @@
    <tr>
      <td>{{$change->oldSeat}}</td>
      <td>{{$change->oldShift}}</td>
+	 @if($change->oldShared != Null)
      <td>{{$change->oldShared ? 'shared': 'not shared' }}</td>
+	 @else
+	 <td></td>
+	 @endif
      <td>{{$change->newSeat}}</td>
      <td>{{$change->newShift}}</td>
      <td>{{$change->newShared ? 'shared': 'not shared' }}</td>

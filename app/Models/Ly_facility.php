@@ -47,8 +47,8 @@ class Ly_facility extends Model
         subquery.newSeat,
         subquery.newShift,
         subquery.newShared,
-        CONCAT(actualKey.seatKeys,' / ',actualKey.seatName,'/',actualKey.shift) AS oldKeys,
-        CONCAT(subquery.newKeys,' / ', subquery.newSeat,'/', subquery.newShift) AS newKeys,
+        CONCAT(actualKey.seatKeys,'  ',actualKey.seatName,'/',actualKey.shift) AS oldKeys,
+        CONCAT(subquery.newKeys,'  ', subquery.newSeat,'/', subquery.newShift) AS newKeys,
         subquery.newIdemp,
         subquery.newEmpName 
     FROM (SELECT 

@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class Ly_keyController extends Controller
 {
     public function index(){
-        return view('summary.facility.keys',['keys'=>Ly_key::all()]);
+        $Ly_key=new Ly_key();
+        return view('summary.facility.keys',['keys'=>$Ly_key->showModel()]);
     }  
     
     public function store(Request $request){

@@ -1,10 +1,3 @@
-<label>Search:</label>
-                <input id="searchKeySP" type="text" class="form-control">
-            </div>
-			 <div class="col-sm-4" style="padding:20px;">
-			 <label><button class="btn btn-success btn-md" onclick="SaveInput()" type="submit">Save</button>  </label>
-			<br><br>
-			</div>
 <table class="table">
 	<caption>List of users</caption>
 	<thead>
@@ -19,10 +12,10 @@
 @foreach ($keys as $key )      
    <tr>
      <th scope="row">{{$key->seatName}}</th>
-     <th scope="row">{{$key->shift}}</th>
-     <td><input class="form-control" 
+     <th scope="row">{{ 1==$key->shift ? 'A': 'B' }}</th>
+     <td><input class="inptxt form-control" 
 	 			name="{{$key->shift}}" 
-				id="inptxt{{$key->seatName}}" 
+				id="inptxt{{$key->seatName.$key->shift}}" 
 				type="text"  
 				value="{{$key->seatKeys}}" 
 				disabled="disabled"
@@ -31,15 +24,15 @@
      	</td>
      	<td>
 	 		<center>
-				<button id="btnEdit{{$key->seatName}}" 
-						class="btn btn-primary btn-xs" 
-						onclick="enableInput('{{$key->seatName}}')" 
+				<button id="btnEdit{{$key->seatName.$key->shift}}" 
+						class="btn btnEdit btn-primary btn-xs" 
+						onclick="enableInput('{{$key->seatName.$key->shift}}')" 
 						type="submit">Edit
 				</button>
 				<button style="display: none;" 
-						id="btnCancl{{$key->seatName}}" 
-						class="btn btn-danger btn-xs" 
-						onclick="cancelInput('{{$key->seatName}}')" 
+						id="btnCancl{{$key->seatName.$key->shift}}" 
+						class="btn btnCancl btn-danger btn-xs" 
+						onclick="cancelInput('{{$key->seatName.$key->shift}}')" 
 						type="submit">Cancel
 				</button>
 			</center>
@@ -91,6 +84,14 @@ $("#inptxt"+idseat).prop('disabled', true);
 
 }
 
+function infoSaved(){
+$(".inptxt").removeClass('edited');
+$(".btnEdit").show();
+$(".btnCancl").hide();
+$(".inptxt").prop('disabled', true);
+
+}
+
 function SaveInput(){
 
 	var data=[]
@@ -114,8 +115,8 @@ function SaveInput(){
 
         },
         success: function (response) {
-          
 			Swal.fire('Saved!', '', 'success')	
+			infoSaved()
         }
         
     });

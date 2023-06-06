@@ -10,7 +10,14 @@ class Ly_key extends Model
     use HasFactory;
     protected $table = 'ly_assignations';
    
-
+    public function showModel(){
+        $keys=Ly_key::where('shift','=','1')
+                ->orWhere('shift', '=', '2')
+                ->orderBy('seatName', 'DESC')
+                ->get();
+        
+        return $keys;
+    }
     public function storeModel($request){  
           
 	    foreach($request->data as $row) {

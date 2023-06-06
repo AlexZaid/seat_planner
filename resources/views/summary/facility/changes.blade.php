@@ -1,19 +1,30 @@
+<br/>
+<label>Search</label>
+<br/>
+<br/>
 <input id="changefilter" type="text" class="form-control">
-                                       
-<table class="table">
+<br/>                                     
+<table class="table table-bordered ">
 	<caption>List of users</caption>
 	<thead>
+	<tr>
+    	<th colspan="3"  class="text-center" >From</th>
+    	<th colspan="3"  class="text-center" >To</th>
+    	<th colspan="2"  class="text-center" >Keys</th>
+    	<th colspan="2"  class="text-center" >Employee</th>
+  	</tr>
+	
 	  <tr>
-	    <th scope="col">oldSeat</th>
-	    <th scope="col">oldShift</th>
-	    <th scope="col">oldShared</th>
-	    <th scope="col">newSeat</th>
-	    <th scope="col">newShift</th>
-	    <th scope="col">newShared</th>
-	    <th scope="col">oldKeys</th>
-	    <th scope="col">newKeys</th>
-	    <th scope="col">newIdemp</th>
-	    <th scope="col">newEmpName</th>
+	    <th scope="col">Old Seat</th>
+	    <th scope="col">Shift</th>
+	    <th scope="col">Shared</th>
+	    <th scope="col">new Seat</th>
+	    <th scope="col">Shift</th>
+	    <th scope="col">Shared</th>
+	    <th scope="col">Old Keys</th>
+	    <th scope="col">New Keys</th>
+	    <th scope="col">number ID</th>
+	    <th scope="col">name</th>
 	  </tr>
 	</thead>
 	<tbody class="searchingchange">
@@ -30,10 +41,10 @@
      <td>{{$change->newSeat}}</td>
      <td>{{$change->newShift}}</td>
      <td>{{$change->newShared ? 'shared': 'not shared' }}</td>
-     <td>{{$change->newShared}}</td>
-     <td>{{$change->newKeys}}</td>
-     <td>{{$change->newIdemp}}</td>
-     <td>{{$change->newEmpName}}</td>
+     <td>{{$change->oldKeys}}</td>
+     <td>{{$change->newIdemp>0 ? $change->newKeys: '' }}</td>
+     <td>{{$change->newIdemp>0 ? $change->newIdemp: '' }}</td>
+     <td>{{$change->newEmpName ? $change->newEmpName: 'open seat'}}</td>
    </tr> 
    @endif                         
 @endforeach

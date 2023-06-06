@@ -32,6 +32,15 @@
                              <div class="filterchanges" style="margin:0 auto;width:70%; height: 700px; overflow-y:auto"></div>
                           </div>
                           <div class="tab-pane fade" id="Keys">
+                                <br/>
+                                    <label>Search</label>
+                                <br/>
+                                <input id="searchKeySP" type="text" class="form-control">
+
+                                	<div class="col-sm-4" style="padding:20px;">
+                                			 <label><button class="btn btn-success btn-md" onclick="SaveInput()" type="submit">Save</button>  </label>
+                                			<br><br>
+                                	</div>
                               <div class="filterkeys" style="margin:0 auto;width:70%; height: 700px; overflow-y:auto"></div>
                           </div>
                           <div class="tab-pane fade" id="KeyLoans">

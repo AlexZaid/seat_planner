@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+use App\Models\Ly_keyLoan;
 
 class Ly_assignation extends Model
 {
@@ -57,11 +57,9 @@ class Ly_assignation extends Model
                         $query->orWhere('shift', '=', '1')
                                 ->orWhere('shift', '=', '2')
                                 ->orWhere('shift', '=', '3')
-                                ->orWhere('shift', '=', '4');
-                        
+                                ->orWhere('shift', '=', '4');                       
                     })     
                     ->update($params);     
-
                 }
             
 
@@ -77,7 +75,18 @@ class Ly_assignation extends Model
                                         $query->where('shift',$row['shift']);
                                     }
                                 })     
-                                ->update($parameters);     
+                                ->update($parameters);  
+                                
+                                
+                    /* $sameKey = Ly_keyLoan::where('seatName',$row['spot'])
+                    ->where('shift',$row['shift'])
+                    ->select('ly_assignations.shared')
+                    ->get();    */          
+                         
+                    Ly_keyLoan::where('id_emp',$row['empid'])
+                            // ->whereNotNull('seatKeys')              
+                            ->update(['keyReturned'=>false]); 
+                                         
                 }
                                    
         

@@ -9,10 +9,10 @@
 	<thead>
 	  <tr>
 	    <th scope="col" colspan="3" class="text-center">Employee</th>
-	    <th scope="col" colspan="2" class="text-center" >Old Seat/Shift</th>
-	    <th scope="col" class="text-center">Old Keys</th>   
+	    <th scope="col" colspan="1" class="text-center" >Old Seat-Shift</th>
+	    <th scope="col" class="text-center">Currently employee Keys</th>   
 	    <th scope="col" class="text-center"></th>
-	    <th scope="col" colspan="2" class="text-center" >New Seat/Shift</th>
+	    <th scope="col" colspan="1" class="text-center" >New Seat-Shift</th>
 	    <th scope="col" class="text-center">New Keys</th>
 	  </tr>
 	</thead>
@@ -26,18 +26,16 @@
     </td>
      <td  class="text-center" >{{$keyloan->id_emp}}</td>
      <td  class="text-center" >{{$keyloan->empName}}</td>
-     <td  class="text-center" >{{$keyloan->seatName}}</td>
-     <td  class="text-center" >{{$keyloan->shift}}</td>
-     <td  class="text-center" >{{$keyloan->seatKeys}}</td>
+     <td  class="text-center" >{{$keyloan->oldSeat.'-'.$keyloan->oldShift}}</td>
+     <td  class="text-center" >{{$keyloan->oldKeys}}</td>
      <td  class="text-center" >
                             <i class="bi bi-lock-fill fa-2x" id="lock{{$keyloan->id_emp}}" style="color:#e22525;"></i>   
 							<label onclick="" class="switch switchkeyloanLabel{{$keyloan->id_emp}}">
-		  						<input onchange="switchkeyloan(this,'{{$keyloan->id_emp}}')"  data-info="{{$keyloan->id_emp}},{{$keyloan->seatName}},{{$keyloan->shift}}" type="checkbox" class="switchkeyloan switchkeyloanInput{{$keyloan->id_emp}}" {{ $keyloan->keyReturned ? 'checked': '' }}>
+		  						<input onchange="switchkeyloan(this,'{{$keyloan->id_emp}}')"  data-info="{{$keyloan->id_emp}},{{$keyloan->newSeatKey}},{{$keyloan->newSeat}},{{$keyloan->newShift}}" type="checkbox" class="switchkeyloan switchkeyloanInput{{$keyloan->id_emp}}" {{ $keyloan->keyReturned ? 'checked': '' }}>
 		  						<span class="slider sliderkeyloans round"></span>
 							</label></td>
-     <td  class="text-center" >{{$keyloan->newSeatName}}</td>
-     <td  class="text-center" >{{$keyloan->newShift}}</td>
-     <td  class="text-center" >{{$keyloan->newSeatKeys}}</td>
+     <td  class="text-center" >{{$keyloan->newSeat.'-'.$keyloan->newShift}}</td>
+     <td  class="text-center" >{{$keyloan->newKeys}}</td>
     
    </tr>                          
 @endforeach
@@ -75,8 +73,9 @@ function savekeyLoans(){
         let info=information.split(',');
         data.push({
 				   empid:info[0],
-				   spot:info[1],
-				   shift:info[2],
+				   newKey:info[1],
+				   spot:info[2],
+				   shift:info[3],
 				   unlocked:true
 			    })
    });

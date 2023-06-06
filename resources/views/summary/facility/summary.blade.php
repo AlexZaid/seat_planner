@@ -10,7 +10,7 @@
 	    <th scope="col" class="text-center">seat</th>
 	    <th scope="col" class="text-center">shift</th>
 	    <th scope="col" colspan="3" class="text-center">Employee</th>
-	    <th scope="col" class="text-center">keys</th>
+	    <th scope="col" class="text-center">Employee keys</th>
 	  </tr>
 	</thead>
 	<tbody class="searchingcontent">
@@ -25,7 +25,7 @@
     </td>
      <td class="text-center">{{$summary->id_emp}}</td>
      <td class="text-center">{{$summary->emp_name}}</td>
-     <td class="text-center">{{$summary->seatKeys}}</td>
+     <td class="text-center">{{$summary->employeeKeys}}</td>
    </tr>                          
 @endforeach
 	</tbody>

@@ -14,25 +14,28 @@ class Ly_facility extends Model
         $spots =DB::select(DB::raw("SELECT 
                                             a.seatName,
                                             a.shift,
-                                            a.seatKeys,
+                                            keyloans.seatKeys as employeeKeys,
                                             a.weekdays,
                                             a.shared,
                                             e.id_emp,
                                             CONCAT(e.first_name,' ',e.last_name) as emp_name 
-                                    FROM `ly_assignations` as a LEFT JOIN employee as e on a.id_emp=e.id_emp  
-                                        WHERE a.shared=1
+                                    FROM `ly_assignations` as a 
+                                        LEFT JOIN employee as e on a.id_emp=e.id_emp  
+                                        LEFT JOIN ly_key_loans as keyloans on keyloans.id_emp=e.id_emp  
+                                        WHERE a.shared=true
                                     UNION ALL
                                     SELECT 
                                             a.seatName,
                                             a.shift,
-                                            a.seatKeys,
+                                            keyloans.seatKeys as employeeKeys,
                                             a.weekdays,
                                             a.shared,
                                             e.id_emp,
                                             CONCAT(e.first_name,' ',e.last_name) as empName 
                                     FROM `ly_assignations` as a
                                         LEFT JOIN employee as e on a.id_emp=e.id_emp  
-                                        WHERE a.shared=0 AND a.shift=1  
+                                        LEFT JOIN ly_key_loans as keyloans on keyloans.id_emp=e.id_emp  
+                                        WHERE a.shared=false AND a.shift=1 
                                     ORDER BY `seatName` DESC"));
 
         return $spots;

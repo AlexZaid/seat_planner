@@ -18,13 +18,13 @@
 	    <th scope="col">Old Seat</th>
 	    <th scope="col">Shift</th>
 	    <th scope="col">Shared</th>
-	    <th scope="col">new Seat</th>
+	    <th scope="col">New Seat</th>
 	    <th scope="col">Shift</th>
 	    <th scope="col">Shared</th>
-	    <th scope="col">Old Keys</th>
+	    <th scope="col">Currently employee Keys</th>
 	    <th scope="col">New Keys</th>
-	    <th scope="col">number ID</th>
-	    <th scope="col">name</th>
+	    <th scope="col">Number ID</th>
+	    <th scope="col">Name</th>
 	  </tr>
 	</thead>
 	<tbody class="searchingchange">

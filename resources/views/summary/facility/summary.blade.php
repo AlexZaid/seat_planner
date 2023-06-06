@@ -18,7 +18,7 @@
 @foreach ($summaries as $summary )      
    <tr>
      <td class="text-center">{{$summary->seatName}}</td>
-     <td class="text-center">{{$summary->shared  ? '' : $summary->shift}}</td>
+     <td class="text-center">{{$summary->shared  ? $summary->shift : '' }}</td>
      <td class="text-center">{{$summary->shared ? 'Shared' :'Not Shared'}}</td>
 	 <td class="text-center"><div 
             class="avatartables picture" 

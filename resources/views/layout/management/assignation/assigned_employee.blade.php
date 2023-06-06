@@ -17,7 +17,7 @@
 	 		<a href="#" OnClick="lookforSeatEmployee('{{$seatId}}','{{$employee->id_emp}}','{{$employee->weekdays}}')">{{$employee->seatName}}</a>
      	</td>
      	<td>
-			<a href="#" OnClick="lookforSeatEmployee('{{$seatId}}','{{$employee->id_emp}}','{{$employee->weekdays}}')">{{$employee->shift}}</a>
+			<a href="#" OnClick="lookforSeatEmployee('{{$seatId}}','{{$employee->id_emp}}','{{$employee->weekdays}}')">{{$employee->shared ? $employee->shift : ''}}</a>
 		</td>
 		<td>
 			<a href="#" OnClick="lookforSeatEmployee('{{$seatId}}','{{$employee->id_emp}}','{{$employee->weekdays}}')">{{$employee->first_name." ".$employee->last_name}}</a>

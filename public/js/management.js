@@ -279,11 +279,11 @@ function DragDropHandler(){
 			   </td>
 			   <td>
 				  <a href="#" OnClick="lookforSeatEmployee('${$(this).attr("id")}','${$(ui.draggable).val()}','${dayf}')">${seatShift[1]}</a>
-			  </td>
-			  <td>
-				  <a href="#" OnClick="lookforSeatEmployee('${$(this).attr("id")}','${$(ui.draggable).val()}','${dayf}')">${$(ui.draggable).find('.picletters').text()}</a>
-			  </td>
-			  <td>
+				</td>
+			  	<td>
+					  <a href="#" OnClick="lookforSeatEmployee('${$(this).attr("id")}','${$(ui.draggable).val()}','${dayf}')">${$(ui.draggable).find('.picletters').text()}</a>
+			  	</td>
+			  	<td>
 				  <a href="#" OnClick="lookforSeatEmployee('${$(this).attr("id")}','${$(ui.draggable).val()}','${dayf}')">${$(ui.draggable).val()}</a>
 				  </td>
 				 </tr> `);

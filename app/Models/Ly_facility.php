@@ -43,7 +43,7 @@ class Ly_facility extends Model
 
 
     public function changes(){
-        $changes =DB::select(DB::raw("SELECT 
+        /* $changes =DB::select(DB::raw("SELECT 
         oldLayout.seatName as oldSeat,
         oldLayout.shift as oldShift,
         oldLayout.shared as oldShared, 
@@ -73,7 +73,9 @@ class Ly_facility extends Model
     LEFT JOIN ly_assignations_comparison AS oldLayout on empNew.id_emp=oldLayout.id_emp
     LEFT JOIN ly_key_loans as actualKey on empNew.id_emp=actualKey.id_emp
          ORDER BY oldSeat ASC"));
+ */
 
+    $changes =DB::select(DB::raw("SELECT * FROM `ly_changes` where DATE(created_at)=(SELECT max(DATE(created_at)) FROM `ly_changes`)" ));
         return $changes;
     }
 }

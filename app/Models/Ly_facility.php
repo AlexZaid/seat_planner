@@ -36,7 +36,7 @@ class Ly_facility extends Model
                                         LEFT JOIN employee as e on a.id_emp=e.id_emp  
                                         LEFT JOIN ly_key_loans as keyloans on keyloans.id_emp=e.id_emp  
                                         WHERE a.shared=false AND a.shift=1 
-                                    ORDER BY `seatName` DESC"));
+                                    ORDER BY `seatName` DESC ,shift"));
 
         return $spots;
     }

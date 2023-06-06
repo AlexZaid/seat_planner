@@ -9,6 +9,7 @@
 	  <tr>
 	    <th scope="col" class="text-center">Seat</th>
 	    <th scope="col" class="text-center">Shift</th>
+	    <th scope="col" class="text-center">Shared</th>
 	    <th scope="col" colspan="3" class="text-center">Employee</th>
 	    <th scope="col" class="text-center">Employee keys</th>
 	  </tr>
@@ -18,6 +19,7 @@
    <tr>
      <td class="text-center">{{$summary->seatName}}</td>
      <td class="text-center">{{$summary->shift}}</td>
+     <td class="text-center">{{$summary->shared ? 'Shared' :'Not Shared'}}</td>
 	 <td class="text-center"><div 
             class="avatartables picture" 
             style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$summary->id_emp}}.jpg')">

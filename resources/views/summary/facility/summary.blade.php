@@ -7,8 +7,8 @@
 	<caption>List of users</caption>
 	<thead>
 	  <tr>
-	    <th scope="col" class="text-center">seat</th>
-	    <th scope="col" class="text-center">shift</th>
+	    <th scope="col" class="text-center">Seat</th>
+	    <th scope="col" class="text-center">Shift</th>
 	    <th scope="col" colspan="3" class="text-center">Employee</th>
 	    <th scope="col" class="text-center">Employee keys</th>
 	  </tr>

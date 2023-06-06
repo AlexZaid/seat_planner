@@ -75,7 +75,15 @@ class Ly_facility extends Model
          ORDER BY oldSeat ASC"));
  */
 
-    $changes =DB::select(DB::raw("SELECT * FROM `ly_changes` where DATE(created_at)=(SELECT max(DATE(created_at)) FROM `ly_changes`)" ));
+    $changes =DB::select(DB::raw("SELECT ch.*,
+                                    CONCAT(actualKey.seatKeys,'  ',actualKey.seatName,'/',actualKey.shift) AS oldKeys,
+                                    CONCAT(ch.newKeys,'  ', ch.newSeat,'/',ch.newShift) AS newKeys,
+                                    CONCAT(emp.first_name,'  ',emp.last_name) AS empName
+                                FROM `ly_changes` as ch 
+                                    LEFT JOIN employee AS emp on emp.id_emp=ch.id_emp
+                                    LEFT JOIN ly_key_loans as actualKey on emp.id_emp=actualKey.id_emp    
+                                where DATE(ch.created_at)=(SELECT max(DATE(created_at)) FROM `ly_changes`)" 
+                                ));
         return $changes;
     }
 }

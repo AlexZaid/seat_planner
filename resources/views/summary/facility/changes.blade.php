@@ -42,9 +42,9 @@
      <td>{{$change->newShift}}</td>
      <td>{{$change->newShared ? 'shared': 'not shared' }}</td>
      <td>{{$change->oldKeys}}</td>
-     <td>{{$change->newIdemp>0 ? $change->newKeys: '' }}</td>
-     <td>{{$change->newIdemp>0 ? $change->newIdemp: '' }}</td>
-     <td>{{$change->newEmpName ? $change->newEmpName: 'open seat'}}</td>
+     <td>{{$change->id_emp>0 ? $change->newKeys: '' }}</td>
+     <td>{{$change->id_emp>0 ? $change->id_emp: '' }}</td>
+     <td>{{$change->empName ? $change->empName: 'open seat'}}</td>
    </tr> 
    @endif                         
 @endforeach

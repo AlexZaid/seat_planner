@@ -1,5 +1,5 @@
 <table class="table">
-	<caption>List of users</caption>
+	<caption>List of keys</caption>
 	<thead>
 	  <tr>
 	    <th scope="col">Seat</th>

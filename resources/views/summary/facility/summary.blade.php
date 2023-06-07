@@ -4,7 +4,7 @@
 <input id="summaryfilter" type="text" class="form-control">
 <br/>    
 <table class="table">
-	<caption>List of users</caption>
+	<caption>List of seats</caption>
 	<thead>
 	  <tr>
 	    <th scope="col" class="text-center">Seat</th>

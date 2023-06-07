@@ -5,7 +5,7 @@
 <input id="changefilter" type="text" class="form-control">
 <br/>                                     
 <table class="table table-bordered ">
-	<caption>List of users</caption>
+	<caption>List of changes</caption>
 	<thead>
 	<tr>
     	<th colspan="3"  class="text-center" >From</th>

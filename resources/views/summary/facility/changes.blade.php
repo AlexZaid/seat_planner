@@ -21,18 +21,18 @@
 	    <th scope="col">New Seat</th>
 	    <th scope="col">Shift</th>
 	    <th scope="col">Shared</th>
-	    <th scope="col">Currently employee Keys</th>
+	    <th scope="col">Current employee Keys</th>
 	    <th scope="col">New Keys</th>
 	    <th scope="col">Number ID</th>
 	    <th scope="col">Name</th>
 	  </tr>
 	</thead>
 	<tbody class="searchingchange">
-	{{$empid=0}}
+	@php $empid=0 @endphp
 @foreach ($changes as $change ) 
 	@if(($change->newShared==false && $change->newShift==1)||(($change->newShared==true)) )
 		@if(($change->id_emp!=$empid))
-		{{$empid=$change->id_emp}}
+		@php $empid=$change->id_emp @endphp
    			<tr>
    			  <td>{{$change->oldSeat}}</td>
    			  <td>{{$change->oldShift}}</td>

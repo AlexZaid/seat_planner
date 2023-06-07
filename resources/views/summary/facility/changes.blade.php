@@ -28,24 +28,28 @@
 	  </tr>
 	</thead>
 	<tbody class="searchingchange">
+	{{$empid=0}}
 @foreach ($changes as $change ) 
 	@if(($change->newShared==false && $change->newShift==1)||(($change->newShared==true)) )
-   <tr>
-     <td>{{$change->oldSeat}}</td>
-     <td>{{$change->oldShift}}</td>
-	 @if($change->oldShared != Null)
-     <td>{{$change->oldShared ? 'shared': 'not shared' }}</td>
-	 @else
-	 <td></td>
-	 @endif
-     <td>{{$change->newSeat}}</td>
-     <td>{{$change->newShift}}</td>
-     <td>{{$change->newShared ? 'shared': 'not shared' }}</td>
-     <td>{{$change->oldKeys}}</td>
-     <td>{{$change->id_emp>0 ? $change->newKeys: '' }}</td>
-     <td>{{$change->id_emp>0 ? $change->id_emp: '' }}</td>
-     <td>{{$change->empName ? $change->empName: 'open seat'}}</td>
-   </tr> 
+		@if(($change->id_emp!=$empid))
+		{{$empid=$change->id_emp}}
+   			<tr>
+   			  <td>{{$change->oldSeat}}</td>
+   			  <td>{{$change->oldShift}}</td>
+				 @if($change->oldShared !== Null)
+   			  <td>{{$change->oldShared ? 'shared': 'not shared' }}</td>
+				 @else
+				 <td></td>
+				 @endif
+   			  <td>{{$change->newSeat}}</td>
+   			  <td>{{$change->newShift}}</td>
+   			  <td>{{$change->newShared ? 'shared': 'not shared' }}</td>
+   			  <td>{{$change->oldKeys}}</td>
+   			  <td>{{$change->id_emp>0 ? $change->newKeys: '' }}</td>
+   			  <td>{{$change->id_emp>0 ? $change->id_emp: '' }}</td>
+   			  <td>{{$change->empName ? $change->empName: 'open seat'}}</td>
+   			</tr>
+		@endif  
    @endif                         
 @endforeach
 	</tbody>

@@ -17,10 +17,10 @@
                               <a href="#Changes" class="nav-link" data-bs-toggle="tab"><i class="bi bi-people-fill"></i> Changes</a>
                           </li>
                           <li class="nav-item">
-                              <a href="#Keys" class="nav-link" data-bs-toggle="tab"><i class="bi bi-key-fill"></i>  Keys</a>
+                              <a href="#Keys" class="nav-link" data-bs-toggle="tab"><i class="bi bi-key-fill"></i> Keys</a>
                           </li>
                           <li class="nav-item">
-                              <a href="#KeyLoans" class="nav-link" data-bs-toggle="tab"><i class="bi bi-lock-fill"></i> Keys to deliver</a>
+                              <a href="#KeyLoans" class="nav-link" data-bs-toggle="tab"><i class="bi bi-lock-fill"></i> Keys delivery</a>
                           </li>
                       </ul>
                       <div class="tab-content">

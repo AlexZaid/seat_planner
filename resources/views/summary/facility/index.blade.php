@@ -29,6 +29,12 @@
                          
                           </div>
                           <div class="tab-pane fade" id="Changes">
+                                <br/>
+                                <label>Search</label>
+                                <br/>
+                                <br/>
+                                <input id="changefilter" type="text" class="form-control">
+                                <br/>  
                              <div class="filterchanges" style="margin:0 auto;width:70%; height: 700px; overflow-y:auto"></div>
                           </div>
                           <div class="tab-pane fade" id="Keys">

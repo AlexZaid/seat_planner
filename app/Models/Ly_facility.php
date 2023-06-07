@@ -76,8 +76,8 @@ class Ly_facility extends Model
  */
 
     $changes =DB::select(DB::raw("SELECT ch.*,
-                                    CONCAT(actualKey.seatKeys,'  ',actualKey.seatName,'/',actualKey.shift) AS oldKeys,
-                                    CONCAT(ch.newKeys,'  ', ch.newSeat,'/',ch.newShift) AS newKeys,
+                                    CONCAT(actualKey.seatKeys,'  ',actualKey.seatName,'-',actualKey.shift) AS oldKeys,
+                                    CONCAT(ch.newKeys,'  ', ch.newSeat,'-',ch.newShift) AS newKeys,
                                     CONCAT(emp.first_name,'  ',emp.last_name) AS empName
                                 FROM `ly_changes` as ch 
                                     LEFT JOIN employee AS emp on emp.id_emp=ch.id_emp

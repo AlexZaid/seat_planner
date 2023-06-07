@@ -1,9 +1,3 @@
-<br/>
-<label>Search</label>
-<br/>
-<br/>
-<input id="changefilter" type="text" class="form-control">
-<br/>                                     
 <table class="table table-bordered ">
 	<caption>List of changes</caption>
 	<thead>

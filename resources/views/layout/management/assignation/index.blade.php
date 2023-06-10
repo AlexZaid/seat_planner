@@ -102,7 +102,7 @@
                       </div>
                       @auth
                         <b>Employees with not seat</b>
-                        <div class=""	style="width:100%;height:270px; overflow-y: scroll;">
+                        <div class=""	style="width:100%;height:215px; overflow-y: scroll;">
                           <div style="margin-top: 40%;" class="spinload d-flex justify-content-center">
                             <div class="spinner-border" role="status">
                               <span class="visually-hidden">Loading...</span>
@@ -123,7 +123,7 @@
                         </div>
                       @endauth
                         <b>Employees and seats in Layout</b>
-                        <div class=""	style="width:100%;height:{{Auth::check() ? '246': '538'}}px; overflow-y: scroll;">
+                        <div class=""	style="width:100%;height:{{Auth::check() ? '255': '493'}}px; overflow-y: scroll;">
                           <div class="filterEmpInLayout" style="" ></div>
                         </div>
                     </div>

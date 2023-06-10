@@ -443,14 +443,16 @@ function switchBoxes(obj,seatId){
 		alert("multiple EMPLOYEES please unassign and leave just one");
 		$(".sharedSwitchInput"+seatId).prop('checked',true)
 	   }else{
+		$("#seatButton"+seatId).removeClass('btn-primary').addClass('btn-danger')
+		$("#seatButtonOpen"+seatId).removeClass('btn-primary').addClass('btn-danger')
 		$("#switchText"+seatId).text('Not Shared')
-		for(i=1;i<5;i++){
-		   $("#"+seatSplit[0]+'-'+i).removeClass(i+'shared')
-		   $("#open"+seatSplit[0]+'-'+i).removeClass(i+'shared')
+			for(i=1;i<5;i++){
+			   $("#"+seatSplit[0]+'-'+i).removeClass(i+'shared')
+			   $("#open"+seatSplit[0]+'-'+i).removeClass(i+'shared')
 
-		   if($("#"+seatSplit[0]+'-'+i).find('li.vat').val()!==undefined){
-			$("#"+seatSplit[0]+'-'+i).find('li.vat').appendTo("#"+seatSplit[0]+'-'+shift).fadeIn();
-		}
+			   if($("#"+seatSplit[0]+'-'+i).find('li.vat').val()!==undefined){
+				$("#"+seatSplit[0]+'-'+i).find('li.vat').appendTo("#"+seatSplit[0]+'-'+shift).fadeIn();
+			}
 
 		   
 	   	}
@@ -459,13 +461,17 @@ function switchBoxes(obj,seatId){
 	   $("#"+seatId).addClass('admin')
 	   $("#open"+seatId).addClass('admin')}
    }else{
+	  $("#seatButton"+seatId).removeClass('btn-danger').addClass('btn-primary')
+	  $("#seatButtonOpen"+seatId).removeClass('btn-danger').addClass('btn-primary')
 	  
-	   $("#switchText"+seatId).text('Shared')
+	  $("#switchText"+seatId).text('Shared')
 	   for(i=1;i<5;i++){	
 		   $("#switchText"+seatSplit[0]+'-'+i).text('Shared')
 		   $(".sharedSwitchInput"+seatSplit[0]+'-'+i).prop('checked',true)
 		   $("#"+seatSplit[0]+'-'+i).addClass(i+'shared')
 		   $("#open"+seatSplit[0]+'-'+i).addClass(i+'shared')
+		   $("#open"+seatSplit[0]+'-'+i).removeClass('Mo Tu We Th Fr')
+		   $("#"+seatSplit[0]+'-'+i).addClass('Mo Tu We Th Fr')
 		   if($("#"+seatSplit[0]+'-'+i).find('li.vat').val()!==undefined){
 				$("#"+seatSplit[0]+'-'+i).find('li.vat').appendTo("#"+seatSplit[0]+'-'+shift);
 				

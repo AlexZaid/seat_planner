@@ -2,10 +2,12 @@
 	@php
 		$days = str_replace(',', ' ', $seat->weekdays);
 		
+		$colorSeat = "btn-primary";
 		$classShared = $seat->shift. "shared ";
 		$seatId=$seat->seatName.'-'.$seat->shift;	
 		if($seat->shared==false&&$seat->shift==1) {
 			$classShared = "admin ";
+			$colorSeat = "btn-danger";
 		}elseif($seat->shared==false&&($seat->shift==2||$seat->shift==3||$seat->shift==4)){
 			$classShared = "";
 		}		
@@ -15,7 +17,7 @@
 		<ul id="{{$seatId}}" class="seat{{$seat->seatName}} seatdiv employeesassigned {{$classShared.' '.$days}} " style="padding: 0px;">
 		  	
 			<button type="button" id="seatButton{{$seatId}}" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" value="{{$seatId}}" data-element="seat" 
-			class="btn btn-primary btnSeatName" 
+			class="btn btnSeatName {{$colorSeat}}" 
 			style="cursor:pointer;"
 			 data-bs-toggle="modal" data-bs-target="#seatModal{{$seatId}}">
 			 {{$seat->seatName}}</button>
@@ -128,7 +130,7 @@
 				@endphp 
 				<div id="open{{$seatId}}" class="opendiv {{$classShared}} open{{$seat->seatName}} {{$classDays}}" style="padding: 0px;">
 				     <div class="openSeats">
-					 <button type="button" id="" onclick="{{Auth::check() ? 'showModalOpen()': ''}}" class="btn btn-primary btnSeatName" style="cursor:pointer;">
+					 <button type="button" id="seatButtonOpen{{$seatId}}" onclick="{{Auth::check() ? 'showModalOpen()': ''}}" class="btn {{$colorSeat}} btnSeatName" style="cursor:pointer;">
 			 {{$seat->seatName}}</button>
 					 </div> 
 				</div>

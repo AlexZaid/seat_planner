@@ -87,11 +87,11 @@
                             </div>
                     </div>
                   <div id="floors" onselectstart="return false"  style="background-color: #cdced0; display:none; position:relative; margin:30px auto; height: 650px;width: 997px; min-width: 997px;">                                           
-                    <div id="floorMZ" style="background: url('/img/mz.png') no-repeat; position:relative;   height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor7" style="background: url('/img/7.png') no-repeat; position:relative;     height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor8" style="background: url('/img/8.png') no-repeat; position:relative;     height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor9" style="background: url('/img/9.png') no-repeat; position:relative;     height: 650px;width: 1230px; min-width: 1230px;"></div>
-						        <div id="floor10" style="background: url('/img/PH.png') no-repeat; position:relative;   height: 650px;width: 1230px; min-width: 1230px;"></div>
+                    <div id="floorMZ" style="background: url('/img/mz.png') no-repeat; position:relative;   height: 650px;width: 997px; min-width: 997px;"></div>
+						        <div id="floor7" style="background: url('/img/7.png') no-repeat; position:relative;     height: 650px;width: 997px; min-width: 997px;"></div>
+						        <div id="floor8" style="background: url('/img/8.png') no-repeat; position:relative;     height: 650px;width: 997px; min-width: 997px;"></div>
+						        <div id="floor9" style="background: url('/img/9.png') no-repeat; position:relative;     height: 650px;width: 997px; min-width: 997px;"></div>
+						        <div id="floor10" style="background: url('/img/PH.png') no-repeat; position:relative;   height: 650px;width: 997px; min-width: 997px;"></div>
 					        </div>
                 </div>            
                 <div class="col-xs-2 col-sm-2 col-md-2 form-panel" >

@@ -62,7 +62,32 @@
 					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					      </div>
 					      <div class="modal-body">
-					        <b>Weekdays:</b><br/>
+							<div class="d-flex justify-content-center">
+								<div class="avatarModal picture" id="{{$seat->id_emp}}k" style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$seat->id_emp}}.jpg')">
+		    	    			</div>
+							</div>
+					        <div class="d-flex justify-content-center">
+								 <b>{{$seat->first_name." ".$seat->last_name}}</b>
+							</div>
+							<div class="d-flex justify-content-center">
+								{{$seat->user_lvl}}
+							</div>
+							<div class="d-flex justify-content-center">
+								<b>Email:</b>&nbsp; {{$seat->email}}
+							</div>
+							<div class="d-flex justify-content-center">
+								@if($seat->managerName)
+									<b>Manager:</b>&nbsp; {{$seat->managerName}}
+								@endif
+							</div>
+							<div class="d-flex justify-content-center">
+								<a href="https://ourpeople.in.here.com/OurPeople/OurPeople.php?u={{$seat->id_emp}}" class="button" target="_blank">View complete profile</a>
+							</div>
+							<br/>
+							<div class="d-flex justify-content-center">
+								<b>Days in the office:</b>
+							</div>
+							<div class="d-flex justify-content-center">
 								<div onclick="checkedboxes(this,'{{$seat->id_emp}}')" class="checkbox{{$seat->id_emp}} checkboxesDays">
 									<input type="checkbox" class="MoCheck" id="checkbox{{$seat->id_emp}}Mo" value="Mo" {{ false !== strpos($seat->weekdays, 'Mo') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Monday</label><br/>
 									<input type="checkbox" class="TuCheck" id="checkbox{{$seat->id_emp}}Tu" value="Tu" {{ false !== strpos($seat->weekdays, 'Tu') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Tuesday</label><br/>
@@ -70,7 +95,8 @@
 									<input type="checkbox" class="ThCheck" id="checkbox{{$seat->id_emp}}Th" value="Th" {{ false !== strpos($seat->weekdays, 'Th') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Thursday</label><br/>
 									<input type="checkbox" class="FrCheck" id="checkbox{{$seat->id_emp}}Fr" value="Fr" {{ false !== strpos($seat->weekdays, 'Fr') ? 'checked': '' }} {{ Auth::check() ? '': 'disabled' }}> <label for="cbox2">Friday</label>
 								</div>
-					      </div>
+							</div>
+						  </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					      </div>

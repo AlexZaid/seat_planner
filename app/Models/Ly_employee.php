@@ -15,13 +15,15 @@ class Ly_employee extends Model
                         $query->from('ly_assignations')
                               ->whereRaw('ly_assignations.id_emp=employee.id_emp');
                     })
-                    ->where('emp_status','=', 'active')
+                    ->leftJoin('employee AS manager', 'manager.id_emp', '=', 'employee.booking_manager')
+                    ->where('employee.emp_status','=', 'active')
                     ->where(function($query)
                         {  
-                            $query->orWhere('office', '=','Leon Office')
-                                   ->orWhere('department', '=', '5756 / RECF MX Leon')
-                                   ->orWhere('id_emp', '=', '34553');
-                        })     
+                            $query->orWhere('employee.office', '=','Leon Office')
+                                   ->orWhere('employee.department', '=', '5756 / RECF MX Leon')
+                                   ->orWhere('employee.id_emp', '=', '34553');
+                        })
+                    ->select('employee.*',  Ly_assignation::raw('CONCAT(manager.first_name, \' \',manager.last_name) AS managerName'))     
                     ->get();
         return $employees;
     }

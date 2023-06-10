@@ -13,8 +13,9 @@ class Ly_assignation extends Model
         /* if($layoutManager==true){ */
             $spots = Ly_assignation::whereRaw('ly_assignations.seatName like :floor', ['floor' => $floor.'%'])
                                     ->leftJoin('employee', 'employee.id_emp', '=', 'ly_assignations.id_emp')
+                                    ->leftJoin('employee AS manager', 'manager.id_emp', '=', 'employee.booking_manager')
                                     ->join('ly_seats', 'ly_seats.seatName', '=', 'ly_assignations.seatName')
-                                    ->select('ly_assignations.*','ly_seats.*', 'employee.*')
+                                    ->select('ly_assignations.*','ly_seats.*', 'employee.*',  Ly_assignation::raw('CONCAT(manager.first_name, \' \',manager.last_name) AS managerName'))
                                     ->get(); 
        /*  }
         else{

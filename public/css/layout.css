@@ -483,8 +483,8 @@ div.avatarModal {
   top:  0px; 
   left:  0px; 
   /* cambia estos dos valores para definir el tamaño de tu círculo */
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   /* los siguientes valores son independientes del tamaño del círculo */
   background-repeat: no-repeat;
   background-position: 50%;
@@ -497,5 +497,13 @@ div.avatarModal {
 
 .sliderkeyloans {
   background-color: #e22525;
+}
+
+.adminSeatColor {
+  background-color: #a22020;
+}
+
+.sharedSeatColor {
+  background-color: #0b6bd8;
 }
 			

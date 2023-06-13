@@ -9,7 +9,21 @@
 			$colorSeat = "btn-danger";
 		}elseif($seat->shared==false&&($seat->shift==2||$seat->shift==3||$seat->shift==4)){
 			$classShared = "";
-		}		
+		}
+		$stylePic="";
+		$stylePicli="";
+		if($seat->hasPic) {
+			$profilePic="https://ourpeople.in.here.com/HRPhotos/".$seat->id_emp.".jpg";
+		}else{
+			$profilePic="/img/employeesPic/".$seat->id_emp.".jpg";
+			$stylePic="background-position-x: 3px;
+    				   background-position-y: -10px;
+    				   background-size: 136px;";
+
+			$stylePicli="background-position-x: 3px;
+    				   background-position-y: 3px;";
+					  
+		}	
 	@endphp 
 	<div class="divseat" id="divseat{{$seatId}}" style="position: absolute; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%; width: 25px;">
 		<i class="bi bi-geo-alt-fill fa-3x markerSeat" style="display:none; color:#D35566; position: absolute; top: -80px; left:-10px;"></i>
@@ -51,7 +65,7 @@
 					<div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
 		    	        <button type="button" style="display:none;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$seat->id_emp}}" class="editEmp buttoninfo{{$seat->id_emp}}" ><i class="bi bi-person-vcard"></i></button>
 		    	    </div> 
-		    	    <div class="avatar picture" id="{{$seat->id_emp}}k" style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$seat->id_emp}}.jpg')">
+		    	    <div class="avatar picture" id="{{$seat->id_emp}}k" style="background-image:url('{{$profilePic}}'); {{$stylePicli}}">
 		    	    </div>
 		    	    <div class="picletters Name" >{{$seat->first_name." ".$seat->last_name}}
 		    	    </div>
@@ -64,7 +78,7 @@
 					      </div>
 					      <div class="modal-body">
 							<div class="d-flex justify-content-center">
-								<div class="avatarModal picture" id="{{$seat->id_emp}}k" style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$seat->id_emp}}.jpg')">
+								<div class="avatarModal picture" id="{{$seat->id_emp}}k" style="background-image:url('{{$profilePic}}'); {{$stylePic}}">
 		    	    			</div>
 							</div>
 					        <div class="d-flex justify-content-center">

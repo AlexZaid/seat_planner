@@ -1,11 +1,26 @@
 <ul id="unassigned" class="employees" style="display: flex; height:25000px; align-content: center; flex-direction: column; align-items: center;">  
-@foreach ($ly_employee as $employee )      
+@foreach ($ly_employee as $employee )   
+	@php
+		$stylePic="";
+		$stylePicli="";
+		if($employee->hasPic) {
+			$profilePic="https://ourpeople.in.here.com/HRPhotos/".$employee->id_emp.".jpg";
+		}else{
+			$profilePic="/img/employeesPic/".$employee->id_emp.".jpg";
+			$stylePic="background-position-x: 3px;
+    				   background-position-y: -10px;
+    				   background-size: 136px;";
+
+			$stylePicli="background-position-x: 3px;
+    				   background-position-y: 3px;";
+		}	
+	@endphp
 				<li class="vat {{$employee->id_emp}}" style="margin-left: 2px; margin-top: 2px;" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$employee->id_emp}}"  data-seat="employees">
 				    <a style="display:none;" href="#">{{$employee->first_name." ".$employee->last_name." ".$employee->id_emp}}</a>
 					<div style="height: 78px;background-color:#ffffff00;width: 51px;position: absolute;left: -14px;">
 		    	        <button type="button" style="display:none;" data-bs-toggle="modal" data-bs-target="#employeeModal{{$employee->id_emp}}" class="editEmp buttoninfo{{$employee->id_emp}}" ><i class="bi bi-person-vcard"></i></button>
 		    	    </div> 
-				    <div class="avatar picture" id="{{$employee->id_emp}}k" style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$employee->id_emp}}.jpg')">
+				    <div class="avatar picture" id="{{$employee->id_emp}}k" style="background-image:url('{{$profilePic}}'); {{$stylePicli}}">
 				    </div>
 				    <div class="picletters Name" >{{$employee->first_name." ".$employee->last_name}}
 				    </div>
@@ -18,7 +33,7 @@
 					      </div>
 					      <div class="modal-body">
 							<div class="d-flex justify-content-center">
-								<div class="avatarModal picture" id="{{$employee->id_emp}}k" style="background-image:url('https://ourpeople.in.here.com/HRPhotos/{{$employee->id_emp}}.jpg')">
+								<div class="avatarModal picture" id="{{$employee->id_emp}}k" style="background-image:url('{{$profilePic}}'); {{$stylePic}}">
 		    	    			</div>
 							</div>
 					        <div class="d-flex justify-content-center">

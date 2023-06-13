@@ -3,6 +3,25 @@
 <main>
     <div class="container-fluid py-4">
         <header class="pb-3 mb-4 border-bottom">
+            <div class=" text-center">
+              <div class="row">
+                <div class="col-2">
+                  <button type="button" class="btn btnSeatNameHelp btn-primary">Shared</button><p>Shared Seat</p>
+                </div>
+                <div class="col-1"> 
+                  <button type="button" class="btn btnSeatNameHelp btn-danger">Admin</button><p>Admin Seat</p>
+                </div>
+                <div class="col-2">
+                  <div style="padding: 0px;height: 24px;width: 24px;border: 3px dashed rgb(63, 89, 167); border-radius: 50%; margin: 0 auto;"></div>
+                  <p>Open Seat</p>
+                </div>
+                <div class="col-2">
+                  <div style="height: 24px;width: 24px;background-color: #f0ecec;border-radius: 50%;border: double 3px #00908a; margin: 0 auto;"></div> 
+                   <p>Empty Seat in this day and shift</p>
+                </div>
+              </div>
+            </div>
+      
           <a class="d-flex align-items-center text-dark text-decoration-none">
               <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group me-2 " role="group" aria-label="First group">

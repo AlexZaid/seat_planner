@@ -507,3 +507,10 @@ div.avatarModal {
   background-color: #0b6bd8;
 }
 			
+.btnSeatNameHelp {
+  width: 54px;
+  height: 19px;
+  font-size: 10px;
+  --bs-btn-padding-x: 0;
+  --bs-btn-padding-y: 0;
+}

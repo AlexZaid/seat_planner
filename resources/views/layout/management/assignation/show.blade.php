@@ -1,7 +1,6 @@
 @foreach ($seats as $seat )
 	@php
 		$days = str_replace(',', ' ', $seat->weekdays);
-		
 		$colorSeat = "btn-primary";
 		$classShared = $seat->shift. "shared ";
 		$seatId=$seat->seatName.'-'.$seat->shift;	

@@ -24,6 +24,8 @@
       
           <a class="d-flex align-items-center text-dark text-decoration-none">
               <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+              </div>
+                      <div class="btn-group me-2 " role="group" aria-label="First group">f</div>
                         <div class="btn-group me-2 " role="group" aria-label="First group">
                           <input type="radio" class="btn-check" name="weekdays" id="Mo" value="Mo">
                           <label class="btn btn-outline-primary" for="Mo">Mo</label>
@@ -154,8 +156,8 @@
      <input type="hidden" name="roleEmp" id="roleEmp" value="{{ Session::get('LayoutManager') ? 'management/assignation': 'office' }}">
 </main>
  @auth
-    <script src="/js/management.js?v=1"></script>
+    <script src="/js/management.js?v=2"></script>
   @else
-    <script src="/js/office.js?v=1"></script>
+    <script src="/js/office.js?v=2"></script>
  @endauth
 @endsection

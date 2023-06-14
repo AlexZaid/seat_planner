@@ -60,7 +60,7 @@ function shiftAndDayValue(){
 
 }
 
-function showButton(element) {   
+function showButton(element) {  
    $('.divseat').css('z-index', 0);
    
    if($(element).attr('data-element')=='employee')  {
@@ -533,7 +533,7 @@ $('#filterEmp').keyup(function () {
 
 
 function lookforSeatEmployee(seatId,empid,weekdays){
-
+	
    let shift=seatId.split("-");
    let floor=seatId.split("");
    let day=weekdays.split(",");
@@ -554,13 +554,27 @@ function lookforSeatEmployee(seatId,empid,weekdays){
    $('#divseat'+seatId).find('.markerSeat').addClass('markerSeatAnimation').show();
    $('#divseat'+seatId).css('z-index', 1);
 
-   setTimeout(function(){
+    setTimeout(function(){
 	   $('#divseat'+seatId).find('.markerSeat').removeClass('markerSeatAnimation').fadeOut();
 	   
-	   if($('#seatModal'+seatId).is(':visible')==false){
-		   $('#divseat'+seatId).css('z-index', 0);
+	    if($('#seatModal'+seatId).is(':visible')==false){
+		
+		$('#divseat'+seatId).css('z-index', 0);
+	   } 
+
+	   if($('#employeeModal'+empid).is(':visible')==true){
+		
+		$('#divseat'+seatId).css('z-index', 1);
+	   } 
+
+   }, 10000) 
+}
+
+function employeeModal(empid){
+	if($('#employeeModal'+empid).is(':visible')==true){
+		alert()
+		// $('#divseat'+seatId).css('z-index', 0);
 	   }
-   }, 10000)
 }
 
 function cleanlookforSeatEmployee(){

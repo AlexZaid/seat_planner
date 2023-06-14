@@ -607,6 +607,11 @@ function lookforSeatEmployee(seatId,empid,weekdays){
 	   if($('#seatModal'+seatId).is(':visible')==false){
 		   $('#divseat'+seatId).css('z-index', 0);
 	   }
+
+	   if($('#employeeModal'+empid).is(':visible')==true){
+		
+		$('#divseat'+seatId).css('z-index', 1);
+	   } 
    }, 10000)
 }
 

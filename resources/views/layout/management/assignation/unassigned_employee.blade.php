@@ -7,9 +7,9 @@
 			$profilePic="https://ourpeople.in.here.com/HRPhotos/".$employee->id_emp.".jpg";
 		}else{
 			$profilePic="/img/employeesPic/".$employee->id_emp.".jpg";
-			$stylePic="	background-position-x: -8px;
-    					background-position-y: -9px;
-    					background-size: 150%;";
+			$stylePic="	background-position-x: -11px;
+    					background-position-y: -16px;
+    					background-size: 151%;";
 
 			$stylePicli="background-position-x: 3px;
     				   background-position-y: 3px;";

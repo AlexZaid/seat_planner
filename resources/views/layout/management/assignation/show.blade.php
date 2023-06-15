@@ -16,9 +16,9 @@
 			$profilePic="https://ourpeople.in.here.com/HRPhotos/".$seat->id_emp.".jpg";
 		}else{
 			$profilePic="/img/employeesPic/".$seat->id_emp.".jpg";
-			$stylePic="background-position-x: 3px;
-    				   background-position-y: -10px;
-    				   background-size: 126%;";
+			$stylePic=" background-position-x: -8px;
+    					background-position-y: -9px;
+    					background-size: 150%;";
 
 			$stylePicli="background-position-x: 3px;
     				   background-position-y: 3px;";

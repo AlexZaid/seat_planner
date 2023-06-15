@@ -522,16 +522,45 @@ function saveLayout(){
   
 }	
 
+/*FILTER EMPLOYEES*/
 $('#filterEmp').keyup(function () {
+	
    input = document.getElementById('filterEmp');
    upperText = input.value.toUpperCase();
+   var filteredWord = getLatinWord(upperText);
 
-   $(".employeesInLayout tr").filter(function() {
-		 $(this).toggle($(this).text().toUpperCase().indexOf(upperText) > -1)
-   });
+ 
+		$('.employeesInLayout tr').filter(function(){
+			var text = $(this).text().toUpperCase();
+			text = getLatinWord(text);
+			
+			console.log(text.indexOf(filteredWord));
+			(text.indexOf(filteredWord) > -1) ? $(this).show() : $(this).hide();
+		});
+	
+  /*  $(".employeesInLayout tr").filter(function() {
+		 $(this).toggle($(this).text().toUpperCase().indexOf(filteredWord) > -1)
+   }); */
+
 });
 
-
+function getLatinWord(word){
+	var langMap = {
+		"Á":"A",
+		"É":"E",
+		"Í":"I",
+		"Ó":"O",
+		"Ú":"U",
+		"Ü":"U"
+	   }
+	return word.split('').map(function(character){
+						   if (langMap[character]) {
+							 return langMap[character];
+						   }
+						   return character;
+						}).join('');
+}
+/* */
 function lookforSeatEmployee(seatId,empid,weekdays){
 	
    let shift=seatId.split("-");

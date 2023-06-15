@@ -18,7 +18,7 @@
 			$profilePic="/img/employeesPic/".$seat->id_emp.".jpg";
 			$stylePic="background-position-x: 3px;
     				   background-position-y: -10px;
-    				   background-size: 136px;";
+    				   background-size: 126%;";
 
 			$stylePicli="background-position-x: 3px;
     				   background-position-y: 3px;";

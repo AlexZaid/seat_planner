@@ -533,8 +533,6 @@ $('#filterEmp').keyup(function () {
 		$('.employeesInLayout tr').filter(function(){
 			var text = $(this).text().toUpperCase();
 			text = getLatinWord(text);
-			
-			console.log(text.indexOf(filteredWord));
 			(text.indexOf(filteredWord) > -1) ? $(this).show() : $(this).hide();
 		});
 	

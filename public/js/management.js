@@ -559,6 +559,7 @@ $('#filterEmp').keyup(function () {
    var input, upperText, ul, li, a, i, txtValue;
    input = document.getElementById('filterEmp');
    upperText = input.value.toUpperCase();
+   var filteredWord = getLatinWord(upperText);
    ul = document.getElementById("unassigned");
    li = ul.getElementsByTagName('li');
  
@@ -573,10 +574,30 @@ $('#filterEmp').keyup(function () {
 	 }
    }
 
-   $(".employeesInLayout tr").filter(function() {
-		 $(this).toggle($(this).text().toUpperCase().indexOf(upperText) > -1)
-   });
+   $('.employeesInLayout tr').filter(function(){
+		var text = $(this).text().toUpperCase();
+		text = getLatinWord(text);
+		$(this).toggle(text.indexOf(filteredWord) > -1)
+	});
 });
+
+
+function getLatinWord(word){
+	var langMap = {
+		"Á":"A",
+		"É":"E",
+		"Í":"I",
+		"Ó":"O",
+		"Ú":"U",
+		"Ü":"U"
+	   }
+	return word.split('').map(function(character){
+						   if (langMap[character]) {
+							 return langMap[character];
+						   }
+						   return character;
+						}).join('');
+}
 
 
 function lookforSeatEmployee(seatId,empid,weekdays){

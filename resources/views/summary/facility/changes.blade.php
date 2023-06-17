@@ -22,11 +22,15 @@
 	  </tr>
 	</thead>
 	<tbody class="searchingchange">
-	@php $empid=0 @endphp
+	@php $empid=-1 @endphp
 @foreach ($changes as $change ) 
 	@if(($change->newShared==false && $change->newShift==1)||(($change->newShared==true)) )
 		@if(($change->id_emp!=$empid))
-		@php $empid=$change->id_emp @endphp
+		@php  
+			if($change->id_emp!=0){
+				$empid=$change->id_emp;
+			}
+		@endphp
    			<tr>
    			  <td>{{$change->oldSeat}}</td>
    			  <td>{{$change->oldShift}}</td>

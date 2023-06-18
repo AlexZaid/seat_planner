@@ -25,7 +25,9 @@ def get_layout_changes():
          FROM `ly_changes` as ch 
              LEFT JOIN employee AS emp on emp.id_emp=ch.id_emp
              LEFT JOIN ly_key_loans as actualKey on emp.id_emp=actualKey.id_emp    
-         where DATE(ch.created_at)=(SELECT max(DATE(created_at)) FROM `ly_changes`)"""
+         where DATE(ch.created_at)=(CURDATE())"""
+	
+	#(SELECT max(DATE(created_at)) FROM `ly_changes`)
 	df = pandas.read_sql_query(query,connection)
 	data = df.replace([None], [''], regex=True)
 	print(data)

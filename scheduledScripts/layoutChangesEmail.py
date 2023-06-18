@@ -1,28 +1,30 @@
 from connection import get_layout_changes
 import requests
 import json
+import re
+from datetime import datetime, timedelta
 
 def create_table_changes():
 	changes=get_layout_changes()
-	table="""<table style="border:gray 2px solid;">
+	table="""<table ">
 				<thead>
-					<tr>
-	    				<th colspan='3' style="border:gray 2px solid;background-color:#3F3FE8;">From</th>
-	    				<th colspan='3' style="background-color:#00908A;">To</th>
-	    				<th colspan='2'>Keys</th>
-	    				<th colspan='2'>Employee</th>
+					<tr style="border:gray 2px solid;">
+	    				<th colspan='3' style="background-color:#3F3FE8; color:white;">From</th>
+	    				<th colspan='3' style='background-color:#00908a; color:white;'>To</th>
+	    				<th colspan='2' style="background-color:#00908A; color:white;">Keys</th>
+	    				<th colspan='2' style="background-color:#00908A; color:white;">Employee</th>
 	  				</tr>
 					<tr>
-					    <th style="background-color:#3F3FE8;">Old Seat</th>
-					    <th style="background-color:#3F3FE8;">Shift</th>
-					    <th style="background-color:#3F3FE8;">Shared</th>
-					    <th style="background-color:#00908A;">New Seat</th>
-					    <th style="background-color:#00908A;">Shift</th>
-					    <th style="background-color:#00908A;">Shared</th>
-					    <th>Current employee Keys</th>
-					    <th>New Keys</th>
-					    <th>Number ID</th>
-					    <th>Name</th>
+					    <th style="background-color:#3F3FE8; color:white;">Old Seat</th>
+					    <th style="background-color:#3F3FE8; color:white;">Shift</th>
+					    <th style="background-color:#3F3FE8; color:white;">Shared</th>	    
+					   	<th style='background-color:#00908a; color:white;'>New Seat</th>
+					    <th style="background-color:#00908A; color:white;">Shift</th>
+					    <th style="background-color:#00908A; color:white;">Shared</th>
+					    <th style="background-color:#00908A; color:white;">Current employee Keys</th>
+					    <th style="background-color:#00908A; color:white;">New Keys</th>
+					    <th style="background-color:#00908A; color:white;">Number ID</th>
+					    <th style="background-color:#00908A; color:white;">Name</th>
 					  </tr>
 				</thead>
 				<tbody>"""
@@ -33,31 +35,52 @@ def create_table_changes():
 				if(row["id_emp"]!=0):
 					empid=row["id_emp"]
 				table+=f"""	<tr>
- 			   					<td>{row["oldSeat"]}</td>
- 			   					<td>{row["oldShift"]}</td>
- 			   					<td>{'' if row["oldShared"]== '' else 'shared' if row["oldShared"]==1 else 'Not Shared'}</td>
- 			   					<td>{row["newSeat"]}</td>
- 			   					<td>{row["newShift"]}</td>
- 			   					<td>{'' if row["newShared"]== '' else 'shared' if row["newShared"]==1 else 'Not Shared'}</td>
- 			   					<td>{row["oldKeys"]}</td>
- 			   					<td>{row["newKeys"][1] if row["id_emp"]>0 else ''}</td>
- 			   					<td>{row["id_emp"] if row["id_emp"]>0 else ''}</td>
- 			   					<td>{row["empName"] if row["empName"] else 'open seat'}</td>
+ 			   					<td style="text-align: center;">{row["oldSeat"]}</td>
+ 			   					<td style="text-align: center;">{row["oldShift"]}</td>
+ 			   					<td style="text-align: center;">{'' if row["oldShared"]== '' else 'shared' if row["oldShared"]==1 else 'Not Shared'}</td>
+ 			   					<td style="text-align: center;">{row["newSeat"]}</td>
+ 			   					<td style="text-align: center;">{row["newShift"]}</td>
+ 			   					<td style="text-align: center;">{'' if row["newShared"]== '' else 'shared' if row["newShared"]==1 else 'Not Shared'}</td>
+ 			   					<td style="text-align: center;">{row["oldKeys"]}</td>
+ 			   					<td style="text-align: center;">{row["newKeys"][1] if row["id_emp"]>0 else ''}</td>
+ 			   					<td style="text-align: center;">{row["id_emp"] if row["id_emp"]>0 else ''}</td>
+ 			   					<td style="text-align: center;">{row["empName"] if row["empName"] else 'open seat'}</td>
 							</tr>"""	
 	
 	table+="""</tbody>
 		</table>"""
-	send_email(table)
+	
+	create_message(table)
 
-def send_email(table):
+def create_message(table):
+	N_DAYS_AGO = 7
+
+	today = datetime.now().date()     
+	endChanges = today - timedelta(days=1)   
+	startChanges = today - timedelta(days=N_DAYS_AGO)
+	
+	body=f"""<p style="font-family:Fira Sans book;color: gray">Layout Management Notifications</p>
+	<h1 style="font-family:Fira Sans book;color: #00afaa; display:inline;">Weekly Changes</h1>
+	<h3 style="font-family:Fira Sans light;color: gray; display:inline;">({startChanges} to {endChanges})</h3><br>
+	<p>Hello Team,</p>
+	<p> these are the changes to be made this week</p>
+	<div style="background-color: #383c45; width: 100%; height: 15px">.</div>
+	<br>
+	<h3 style="font-family:Fira Sans book;color: #00afaa">Changes</h3>
+	{table}"""
+	
+	# html=re.sub('\s+',' ',body)
+	send_email(body)
+
+def send_email(html):
 	url = "https://gizmo.teg.aws.in.here.com/v1/email"
 
 	payload = json.dumps({
-	  "subjectEmail": "Layout Changes",
+	  "subjectEmail": "Layout Management - Weekly Changes",
 	  "fromEmail": "layoutmanagement@here.com",
 	  "toEmail": "manuel.diaz@here.com,manuel.diaz@here.com",
 	  "plainTxt": "Go to layout tool to see the changes",
-	  "html": table
+	  "html": html
 	})
 	headers = {
 	  'Content-Type': 'application/json'

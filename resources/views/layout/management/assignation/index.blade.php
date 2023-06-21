@@ -100,7 +100,7 @@
                 </div>  
           </a>
         </header>
-        <div class="row"> 
+        <div class="row" style="width: 100%;" > 
                 <div class="col-md-10  col-sm-10  col-xs-10  form-panel"  style="height: 700px; background-color: #cdced0;">
                   <div style="margin-top: 20%;" class="spinload d-flex justify-content-center">
                             <div class="spinner-border" role="status">

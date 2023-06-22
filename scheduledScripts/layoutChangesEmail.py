@@ -79,7 +79,7 @@ def send_email(html):
 	  "subjectEmail": "Layout Management - Weekly Changes",
 	  "fromEmail": "layoutmanagement@here.com",
 	  "toEmail": "manuel.diaz@here.com,marco.a.salazar@here.com,ext-miguel.thompson@here.com,ext-paulina.mata@here.com,raquel.jimenez@here.com,fernando.delgado@here.com",
-	  "plainTxt": "Go to layout tool to see the changes",
+	  "plainTxt": "Go to layout tool to see the changes ",
 	  "html": html
 	})
 	headers = {

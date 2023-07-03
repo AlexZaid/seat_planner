@@ -30,6 +30,7 @@ def get_layout_changes():
 	#(SELECT max(DATE(created_at)) FROM `ly_changes`)
 	df = pandas.read_sql_query(query,connection)
 	data = df.replace([None], [''], regex=True)
+	data = data.applymap(str)
 	print(data)
 	engine.dispose()
 	return data

@@ -37,7 +37,7 @@ def create_table_changes():
 					oldshift =str(row["oldShift"])
 				table+=f"""	 <tr>
  			   					<td style="text-align: center;">{row["oldSeat"]}</td>
- 			   					<td style="text-align: center;">{oldshift[0]}</td>
+ 			   					<td style="text-align: center;">{'' if row["oldSeat"]== '' else oldshift[0]}</td>
  			   					<td style="text-align: center;">{'' if row["oldSeat"]== '' else 'shared' if row["oldShared"]==1 else 'Not Shared'}</td>
  			   					<td style="text-align: center;">{row["newSeat"]}</td>
  			   					<td style="text-align: center;">{row["newShift"]}</td>

@@ -38,10 +38,10 @@ def create_table_changes():
 				table+=f"""	 <tr>
  			   					<td style="text-align: center;">{row["oldSeat"]}</td>
  			   					<td style="text-align: center;">{oldshift[0]}</td>
- 			   					<td style="text-align: center;">{'' if row["oldShared"]== '' else 'shared' if row["oldShared"]==1 else 'Not Shared'}</td>
+ 			   					<td style="text-align: center;">{'' if row["oldSeat"]== '' else 'shared' if row["oldShared"]==1 else 'Not Shared'}</td>
  			   					<td style="text-align: center;">{row["newSeat"]}</td>
  			   					<td style="text-align: center;">{row["newShift"]}</td>
- 			   					<td style="text-align: center;">{'' if row["newShared"]== '' else 'shared' if row["newShared"]==1 else 'Not Shared'}</td>
+ 			   					<td style="text-align: center;">{'' if row["newSeat"]== '' else 'shared' if row["newShared"]==1 else 'Not Shared'}</td>
  			   					<td style="text-align: center;">{row["oldKeys"]}</td>
  			   					<td style="text-align: center;">{row["newKeys"][1] if row["id_emp"]>0 else ''}</td>
  			   					<td style="text-align: center;">{row["id_emp"] if row["id_emp"]>0 else ''}</td>

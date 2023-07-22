@@ -56,7 +56,7 @@ class Ly_facility extends Model
     }
 
     public function generateKeysPDF(){
-        $pdf = PDF::setOptions(['isRemoteEnabled'=>true,'isHtml5ParserEnabled' => true]); 
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true]); 
         $pdf = $pdf->loadView('summary.facility.changesKeysPDF',['changes'=> $this->changes()]);
         return $pdf;
     }

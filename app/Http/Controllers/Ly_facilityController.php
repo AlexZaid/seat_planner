@@ -32,8 +32,6 @@ class Ly_facilityController extends Controller
 
        /*  $Ly_facility=new Ly_facility();
         $changes=$Ly_facility->changes();
-        return view('summary.facility.changesKeysPDF',['changes'=> $changes]); */
-   
-        
+        return view('summary.facility.changesKeysPDF',['changes'=> $changes]); */        
     }
 }

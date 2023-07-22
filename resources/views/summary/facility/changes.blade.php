@@ -1,3 +1,6 @@
+<a href="/summary/facilities/keysPDF" target="_blank">Print keys to employees pdf</a>
+<br/>
+<br/>
 <table class="table table-bordered ">
 	<caption>List of changes</caption>
 	<thead>

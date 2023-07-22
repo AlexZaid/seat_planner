@@ -24,4 +24,16 @@ class Ly_facilityController extends Controller
         return view('summary.facility.changes',['changes'=> $changes]);
    
     }
+
+    public function changesKeysPDF(){
+        $Ly_facility=new Ly_facility();
+        $pdf=$Ly_facility->generateKeysPDF();
+        return $pdf->stream('archivo.pdf');
+
+       /*  $Ly_facility=new Ly_facility();
+        $changes=$Ly_facility->changes();
+        return view('summary.facility.changesKeysPDF',['changes'=> $changes]); */
+   
+        
+    }
 }

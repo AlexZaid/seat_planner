@@ -47,6 +47,5 @@ class Ly_keyLoan extends Model
             Ly_keyLoan::where('id_emp',$row['empid'])
                       ->update($parameters);     
         }      
-        // return  $data;
     }
 }

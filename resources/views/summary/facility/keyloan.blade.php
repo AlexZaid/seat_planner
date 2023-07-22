@@ -14,6 +14,7 @@
 	    <th scope="col" class="text-center"></th>
 	    <th scope="col" colspan="1" class="text-center" >New Seat-Shift</th>
 	    <th scope="col" class="text-center">New Keys</th>
+		<th scope="col" class="text-center"></th>
 	  </tr>
 	</thead>
 	<tbody class="searchingkeyloan">
@@ -33,9 +34,13 @@
 							<label onclick="" class="switch switchkeyloanLabel{{$keyloan->id_emp}}">
 		  						<input onchange="switchkeyloan(this,'{{$keyloan->id_emp}}')"  data-info="{{$keyloan->id_emp}},{{$keyloan->newSeatKey}},{{$keyloan->newSeat}},{{$keyloan->newShift}}" type="checkbox" class="switchkeyloan switchkeyloanInput{{$keyloan->id_emp}}" {{ $keyloan->keyReturned ? 'checked': '' }}>
 		  						<span class="slider sliderkeyloans round"></span>
-							</label></td>
+							</label>
+	 </td> 
      <td  class="text-center" >{{$keyloan->newSeat.'-'.$keyloan->newShift}}</td>
      <td  class="text-center" >{{$keyloan->newKeys}}</td>
+	 <td  class="text-center" >
+    	<input type="checkbox" id="newKeyCheckEmp{{$keyloan->id_emp}}" value="second_checkbox">
+	 </td>
     
    </tr>                          
 @endforeach
@@ -71,12 +76,15 @@ function savekeyLoans(){
     $( '.switchkeyloan:checked' ).each(function (i) {
 	    let information=$(this).attr('data-info');
         let info=information.split(',');
+		let newKeyCheckEmp=$('#newKeyCheckEmp'+info[0]).prop('checked')
+		console.log(newKeyCheckEmp);
         data.push({
 				   empid:info[0],
 				   newKey:info[1],
 				   spot:info[2],
 				   shift:info[3],
-				   unlocked:true
+				   unlocked:true,
+				   newKeyCheck:newKeyCheckEmp
 			    })
    });
    datos = {"_token" :$('#token').val(),"data":data};
@@ -104,7 +112,8 @@ function savekeyLoans(){
 			success:function(){	
 				
 				Swal.fire('Saved!', '', 'success')	
-				loadKeyLoans()	
+				loadKeyLoans()
+				loadSummary()	
 			}
 		})
 	 

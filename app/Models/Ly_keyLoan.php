@@ -39,7 +39,7 @@ class Ly_keyLoan extends Model
 
     public function storeModel($request){  
 	    foreach($request->data as $row) {
-            $parameters=array(  'seatKeys' => $row['newKey'],
+            $parameters=array(  'seatKeys' => ($row['newKeyCheck']==true) ? $row['newKey'] : '' ,
                                 'seatName' => $row['spot'],
                                 'shift' => $row['shift'],
                                 'keyReturned' => $row['unlocked']);

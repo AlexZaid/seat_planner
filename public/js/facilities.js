@@ -9,6 +9,7 @@ function loadSummary(){
 	$.ajax({
 		url:'/summary/facilities/summary',
 		success:function(data){	
+			$('.filtersummary').empty();
 			$('.filtersummary').append(data);						
 		}
 	})

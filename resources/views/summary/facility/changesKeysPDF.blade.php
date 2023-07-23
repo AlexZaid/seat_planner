@@ -13,7 +13,7 @@
     	<th colspan="2"  class="text-center" >Employee</th>
     	<th colspan="3"  class="text-center" >Seat</th>
     	<th colspan="2"  class="text-center" >Keys</th>
-    	<th colspan="2"  class="text-center" ></th>
+    	<th colspan="3"  class="text-center" ></th>
   	</tr>
 	
 	  <tr>

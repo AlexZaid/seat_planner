@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700,800">
   </head>
 <body>
-
 <table class="table table-bordered ">
 	<thead style="background-color:#00afaa; color:white;">
 	<tr>
@@ -25,6 +24,7 @@
 	    <th scope="col">Shared</th>
 	    <th scope="col">Current employee Keys</th>
 	    <th scope="col">New Keys</th>
+	    <th scope="col">Date</th>
 	    <th scope="col">Signature</th>
 	    <th scope="col">Observation</th>
 	  </tr>
@@ -48,12 +48,12 @@
    		        	  <td>{{$change->id_emp>0 ? $change->newKeys: '' }}</td>
    		        	  <td></td>
    		        	  <td></td>
+   		        	  <td></td>
    		        	</tr>
                 @php  
 		        	endif;
                     $people[] = $change->id_emp;
-		        @endphp
-   		        	
+		        @endphp   	
 		@endif  
    @endif                         
 @endforeach
@@ -71,5 +71,4 @@ body {
   font-family: "Muli", sans-serif;
   font-weight: 400;
 }
-
 </style>

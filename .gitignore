@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/img/employeesPic
+/public/img/employeesWebexPic
 /storage/*.key
 /vendor
 .env

@@ -3,7 +3,8 @@
 	@php
 		$stylePic="";
 		$stylePicli="";
-		if($employee->hasPic) {
+		$profilePic="/img/employeesPic/".$employee->id_emp.".jpg";
+		/*if($employee->hasPic) {
 			$profilePic="https://ourpeople.in.here.com/HRPhotos/".$employee->id_emp.".jpg";
 		}else{
 			$profilePic="/img/employeesPic/".$employee->id_emp.".jpg";
@@ -13,7 +14,7 @@
 
 			$stylePicli="background-position-x: 3px;
     				   background-position-y: 3px;";
-		}	
+		}	*/
 	@endphp
 				<li class="vat {{$employee->id_emp}}" style="margin-left: 2px; margin-top: 2px;" onmouseenter="showButton(this)" onmouseleave="hideButton(this)" data-element="employee" value="{{$employee->id_emp}}"  data-seat="employees">
 				    <a style="display:none;" href="#">{{$employee->first_name." ".$employee->last_name." ".$employee->id_emp}}</a>

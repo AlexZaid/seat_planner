@@ -28,24 +28,6 @@ def select_parameter(admin):
     print(results[0])
     return results[0]    
 
-def get_layout_changes():
-    query="""SELECT ch.*,
-             CONCAT(actualKey.seatKeys,'  ',actualKey.seatName,'-',actualKey.shift) AS oldKeys,
-             CONCAT(ch.newKeys,'  ', ch.newSeat,'-',ch.newShift) AS newKeys,
-             CONCAT(emp.first_name,'  ',emp.last_name) AS empName
-         FROM `ly_changes` as ch 
-             LEFT JOIN employee AS emp on emp.id_emp=ch.id_emp
-             LEFT JOIN ly_key_loans as actualKey on emp.id_emp=actualKey.id_emp    
-         where DATE(ch.created_at)=(CURDATE())"""
-
-    results = executequery(query)
-    resultsp = {}
-    column = 0
-    for d in results.description:
-        resultsp[d[0]] = column
-        column = column + 1
-    return resultsp
-
 def get_employees():
 	query="""SELECT id_emp,first_name,last_name,email FROM employee where emp_status='Active'"""
 	return executequery(query)
@@ -90,5 +72,4 @@ def executequery(tuple, single = False, args = {}, commit = False):
             return cursor.fetchall()
         
 # get_employees()
-print(get_layout_changes())
 # update_parameters('10100','1','4','N/A')

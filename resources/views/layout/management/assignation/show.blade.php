@@ -12,18 +12,18 @@
 		}
 		$stylePic="";
 		$stylePicli="";
-		if($seat->hasPic) {
-			$profilePic="https://ourpeople.in.here.com/HRPhotos/".$seat->id_emp.".jpg";
-		}else{
+		$profilePic="/img/employeesPic/".$seat->id_emp.".jpg";
+		/*if($seat->hasPic) {
 			$profilePic="/img/employeesPic/".$seat->id_emp.".jpg";
+		}else{
+			$profilePic="/img/employeesWebexPic/".$seat->id_emp.".jpg";
 			$stylePic=" background-position-x: -11px;
     					background-position-y: -16px;
     					background-size: 151%;";
 
 			$stylePicli="background-position-x: 3px;
-    				   background-position-y: 3px;";
-					  
-		}	
+    				   background-position-y: 3px;";			  
+		}*/	
 	@endphp 
 	<div class="divseat" id="divseat{{$seatId}}" style="position: absolute; top: {{$seat->posTop}}%;  left:  {{$seat->posLeft}}%; width: 25px;">
 		<i class="bi bi-geo-alt-fill fa-3x markerSeat" style="display:none; color:#D35566; position: absolute; top: -80px; left:-10px;"></i>

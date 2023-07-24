@@ -11,22 +11,22 @@
 	<thead style="background-color:#00afaa; color:white;">
 	<tr>
     	<th colspan="2"  class="text-center" >Employee</th>
-    	<th colspan="3"  class="text-center" >Seat</th>
-    	<th colspan="2"  class="text-center" >Keys</th>
-    	<th colspan="3"  class="text-center" ></th>
+    	<th colspan="2"  class="text-center" >New Seat</th>
+    	<th colspan="2"  class="" >Keys</th>
+    	<th colspan="3"  class="" ></th>
   	</tr>
 	
 	  <tr>
         <th scope="col">Emp ID</th>
 	    <th scope="col">Name</th>
-	    <th scope="col">New Seat</th>
+	    <th scope="col">Seat</th>
 	    <th scope="col">Shift</th>
-	    <th scope="col">Shared</th>
-	    <th scope="col">Current employee Keys</th>
-	    <th scope="col">New Keys</th>
-	    <th scope="col">Date</th>
+	    
+	    <th scope="col" >Cur. Keys</th>
+	    <th scope="col" >New Keys</th>
+	    <th scope="col">Date Rec.</th>
 	    <th scope="col">Signature</th>
-	    <th scope="col">Observation</th>
+	    <th scope="col">Observ.</th>
 	  </tr>
 	</thead>
 	<tbody class="searchingchange">
@@ -40,15 +40,14 @@
 		        @endphp
    		        	<tr>
    		        	  <td>{{$change->id_emp>0 ? $change->id_emp: '' }}</td>
-   		        	  <td>{{$change->empName ? $change->empName: 'open seat'}}</td>
+   		        	  <td class="keys">{{$change->empName ? $change->empName: 'open seat'}}</td>
    		        	  <td>{{$change->newSeat}}</td>
-   		        	  <td>{{$change->newShift}}</td>
-   		        	  <td>{{$change->newShared ? 'shared': 'not shared' }}</td>
-   		        	  <td>{{$change->oldKeys}}</td>
-   		        	  <td>{{$change->id_emp>0 ? $change->newKeys: '' }}</td>
-   		        	  <td></td>
-   		        	  <td></td>
-   		        	  <td></td>
+   		        	  <td class="shiftCell">{{$change->newShared ? $change->newShift : 'admin'}}</td>
+   		        	  <td class="keys">{{$change->oldKeys}}</td>
+   		        	  <td class="keys">{{$change->id_emp>0 ? $change->newKeys: '' }}</td>
+   		        	  <td class="blanks"></td>
+   		        	  <td class="blanks"></td>
+   		        	  <td class="blanks"></td>
    		        	</tr>
                 @php  
 		        	endif;
@@ -65,10 +64,27 @@
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  
+}
+.keys{
+	font-size:  0.8em;
+	word-break: break-word;
+	width:90px;
+}
+
+
+.blanks{
+	height:60px;
+	width:90px;
+}
+
+.shiftCell{
+	text-align:center;
 }
 
 body {
   font-family: "Muli", sans-serif;
   font-weight: 400;
+  
 }
 </style>

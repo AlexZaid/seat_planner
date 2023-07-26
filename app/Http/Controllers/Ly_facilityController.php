@@ -28,7 +28,9 @@ class Ly_facilityController extends Controller
     public function changesKeysPDF(){
         $Ly_facility=new Ly_facility();
         $pdf=$Ly_facility->generateKeysPDF();
-        return $pdf->stream('archivo.pdf');
+        // date_default_timezone_set('America/Chihuahua');
+        // $pdf->save("../utilityFiles/employeekeys".date("Y_m_d_H_i_s").".pdf");
+        return $pdf->stream();
 
        /*  $Ly_facility=new Ly_facility();
         $changes=$Ly_facility->changes();

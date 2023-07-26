@@ -3,6 +3,7 @@
 /public/storage
 /public/img/employeesPic
 /public/img/employeesWebexPic
+/utilityFiles
 /storage/*.key
 /vendor
 .env

@@ -79,7 +79,7 @@ def send_email(html):
 	payload = json.dumps({
 	  "subjectEmail": "Layout Management - Weekly Changes",
 	  "fromEmail": "layoutmanagement@here.com",
-	  "toEmail": "manuel.diaz@here.com,marco.a.salazar@here.com,ext-miguel.thompson@here.com,ext-paulina.mata@here.com,raquel.jimenez@here.com,fernando.delgado@here.com",
+	  "toEmail": "manuel.diaz@here.com,marco.a.salazar@here.com,ext-miguel.thompson@here.com,ext-paulina.mata@here.com,raquel.jimenez@here.com,fernando.delgado@here.com,ext-cesar.zuniga@here.com,I_LEON_PROJECT_LEADERS_GMS",
 	  "plainTxt": "Go to layout tool to see the changes ",
 	  "html": html
 	})
